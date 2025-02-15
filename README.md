@@ -1,14 +1,17 @@
 # Symbol Formatter
 ## Contents
-- [Description](#description)
-- [Symbol Table](#symbol-table)
+- [Symbol Formatter](#symbol-formatter)
+  - [Contents](#contents)
+  - [Description](#description)
+  - [Symbol Table](#symbol-table)
 
 ## Description
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols. It also sterilises the provided text such as replacing symbols that represent quotation marks into actual quotation marks.
 [The website](index.html) contains a filterable list of all the symbols and is up-to-date with the [Symbol table below](#symbol-table).
 
 ## Symbol Table
-_As of 27/01/2025_
+Note that source code for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display, this is so that the literal replacement can be visually seen
+_As of 10/02/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -18,10 +21,13 @@ _As of 27/01/2025_
 |∧|!^! or !AND!|Logical conjunction|
 |→|!->!|Set/function mapping|
 |↦|!\|->!|Element mapping|
+|↔|!<->!|Double-sided arrow|
 |≤|!<=!|Less than or equal to|
 |≥|!>=!|Greater than or equal to|
 |≡|!=!|Mathematical equivalence|
 |≠|!!=!|Not equal to|
+|∤|!!\|!|Not a factor of|
+|±|!+-!|Plus-minus sign|
 |||
 |𝑎|!a!|Algebraic "a"|
 |∀|!all!|Universal quantification|
@@ -71,8 +77,10 @@ _As of 27/01/2025_
 |∴|!so!|Therefore|
 |∃|!some!|Existential quantification|
 |√|!sqrt!|Square root|
+|\$\sqrt{a}$|!sqrt(a)!|LaTeX square root notation|
 |⊆|!sub!|Improper subset|
 |Σ|!sum! or !sigma!|Greek uppercase sigma (mathematical sum)|
+|\$\sum_{a}^{b}$|!sum(a)(b)!|LaTeX sum notation|
 |⊇|!sup!|Improper superset|
 |||
 |∪|!u!|Set union|
