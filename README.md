@@ -18,7 +18,7 @@ Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.
 - It sterilises the provided text, such as replacing symbols that represent quotation marks into actual quotation marks
 - It also structures notes to include a customised table of contents at the top
-[The website](website/index.html) contains a filterable list of all the symbols and is up-to-date with the [Symbol table below](#symbol-table).
+[The website](https://symbol-formatter.netlify.app/) contains a filterable list of all the symbols and is up-to-date with the [Symbol table below](#symbol-table).
 
 ## Purpose
 This program was designed to allow me to take notes in univeristy lectures much more efficiently, not having to worry about finding specific symbols, then copying and pasting them whenever needed. Creating this allowed my notes to be much more streamlined and I could quickly write out a representation for a symbol during a lecture - allowing me to pay better attention -, and afterwards, run a simple shortcut to execute the python script on a desired file path to format it as intended.
