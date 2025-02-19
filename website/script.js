@@ -45,12 +45,10 @@ let slaurg = document.getElementsByClassName("symbol");
 for (let i = 0; i < slaurg.length; i++){
     slaurg[i].addEventListener("click", function(){copyTextToClipboard(slaurg[i])})
 }
-// slaurg.forEach(function(symbol){
-//     symbol.addEventListener("click", function(){copyTextToClipboard(element)});
-// })
 
 function copyTextToClipboard(element){
-    console.log(element.textContent);
-    navigator.clipboard.writeText(element.textContent);
-    alert(`"${element.textContent}" copied to clipboard`);
+    txtContent = (element.hasAttribute('data-value'))? (element.getAttribute("data-value")) : element.textContent;
+    console.log(txtContent);
+    navigator.clipboard.writeText(txtContent);
+    alert(`"${txtContent}" copied to clipboard`);
 }

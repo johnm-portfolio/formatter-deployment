@@ -11,7 +11,7 @@ This program uses python to convert a custom format for representing commonly us
 
 ## Symbol Table
 Note that source code for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display, this is so that the literal replacement can be visually seen
-_As of 16/02/2025_
+_As of 19/02/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -28,6 +28,7 @@ _As of 16/02/2025_
 |≠|!!=!|Not equal to|
 |∤|!!\|!|Not a factor of|
 |±|!+-!|Plus-minus sign|
+|\$\frac{a}{b}$|!(a)/(b)!|LaTeX fraction notation|
 |||
 |𝑎|!a!|Algebraic "a"|
 |∀|!all!|Universal quantification|

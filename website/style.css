@@ -87,4 +87,11 @@ th {
     display: none;
 }
 
-/* var(--main-bg-colour); */
+#sum-format sub {
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+#sum-format sup {
+    font-size: 0.8rem;
+    margin-left: -5px;
+}
