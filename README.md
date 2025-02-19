@@ -11,7 +11,7 @@ This program uses python to convert a custom format for representing commonly us
 
 ## Symbol Table
 Note that source code for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display, this is so that the literal replacement can be visually seen
-_As of 10/02/2025_
+_As of 16/02/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -44,7 +44,8 @@ _As of 10/02/2025_
 |||
 |⊢|!deriv!|Derivable|
 |||
-|∈|!E!|Existential quantification|
+|∈|!E!|Set membership|
+|∉|!!E!|Does not belong to|
 |∅|!empty!|Empty set|
 |ε|!eword!|Empty word|
 |⊨|!entail!|Entailment|
@@ -60,6 +61,9 @@ _As of 10/02/2025_
 |ℕ|!N!|Set of natural numbers|
 |∩|!n!|Set intersection|
 |¬|!NOT!|Logical negation|
+|||
+|Ω|!OMEGA!|Greek uppercase omega|
+|ω|!omega!|Greek lowercase omega|
 |||
 |𝑝|!p!|Algebraic "p"|
 |ϕ|!phi!|Greek lowercase phi|
@@ -82,6 +86,8 @@ _As of 10/02/2025_
 |Σ|!sum! or !sigma!|Greek uppercase sigma (mathematical sum)|
 |\$\sum_{a}^{b}$|!sum(a)(b)!|LaTeX sum notation|
 |⊇|!sup!|Improper superset|
+|||
+|θ|!theta! or !0!|Greek lowercase theta|
 |||
 |∪|!u!|Set union|
 |||
