@@ -2,15 +2,31 @@
 ## Contents
 - [Symbol Formatter](#symbol-formatter)
   - [Contents](#contents)
+  - [Installation](#installation)
   - [Description](#description)
+  - [Purpose](#purpose)
   - [Symbol Table](#symbol-table)
 
+## Installation
+The program works by running a Python file, which will either take command line arguments or prompt for an input. There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
+To make a shortcut that runs it, create a new shortcut with the location set to `powershell.exe -ExecutionPolicy Bypass -File "<yourPath>/runMdToOb.ps1"` where `<yourPath>` is replaced with the absolute path to the parent folder.
+- e.g. `powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/symbol_formatter/runMdToOb.ps1"`
+- 
+Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1` and then edit the Properties of it by right clicking on the created shortcut and setting the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")
+
 ## Description
-This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols. It also sterilises the provided text such as replacing symbols that represent quotation marks into actual quotation marks.
-[The website](index.html) contains a filterable list of all the symbols and is up-to-date with the [Symbol table below](#symbol-table).
+This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.
+- It sterilises the provided text, such as replacing symbols that represent quotation marks into actual quotation marks
+- It also structures notes to include a customised table of contents at the top
+[The website](website/index.html) contains a filterable list of all the symbols and is up-to-date with the [Symbol table below](#symbol-table).
+
+## Purpose
+This program was designed to allow me to take notes in univeristy lectures much more efficiently, not having to worry about finding specific symbols, then copying and pasting them whenever needed. Creating this allowed my notes to be much more streamlined and I could quickly write out a representation for a symbol during a lecture - allowing me to pay better attention -, and afterwards, run a simple shortcut to execute the python script on a desired file path to format it as intended.
+With regular use, common representations are easily remembered and I designed them to be as intuitive as possible, some 'symbols' having multiple different representations for ease of use. However, if any are forgotten having a table (like the one below) proves useful, I had one in my Obsidian vault (where I took notes) for quick reference.
 
 ## Symbol Table
-Note that source code for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display, this is so that the literal replacement can be visually seen
+Note that raw markdown text for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display as its symbol (if viewed in a markdown engine), this is so that the literal replacement can be visually seen.
+
 _As of 19/02/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
