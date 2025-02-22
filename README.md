@@ -75,7 +75,14 @@ _As of 19/02/2025_
 |∞|!infinity!|Infinity|
 |⇒|!imply!|Logical implication|
 |||
+|𝑘|!k!|Algebraic "k"|
+|||
+|𝑙|!l!|Algebraic "l"|
+|||
+|𝑚|!m!|Algebraic "m"|
+|||
 |ℕ|!N!|Set of natural numbers|
+|𝑛|!n!|Algebraic "n"|
 |∩|!n!|Set intersection|
 |¬|!NOT!|Logical negation|
 |||
