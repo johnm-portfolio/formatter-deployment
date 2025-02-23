@@ -27,7 +27,7 @@ With regular use, common representations are easily remembered and I designed th
 ## Symbol Table
 Note that raw markdown text for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display as its symbol (if viewed in a markdown engine), this is so that the literal replacement can be visually seen.
 
-_As of 19/02/2025_
+_As of 23/02/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -49,6 +49,7 @@ _As of 19/02/2025_
 |𝑎|!a!|Algebraic "a"|
 |∀|!all!|Universal quantification|
 |α|!alpha!|Greek lowercase alpha|
+|≈|!approx! or !~!|Approximately equal to|
 |||
 |𝔹|!B!|Set of binary numbers|
 |𝑏|!b!|Algebraic "b"|
