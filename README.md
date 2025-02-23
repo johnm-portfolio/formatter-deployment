@@ -73,6 +73,7 @@ _As of 23/02/2025_
 |||
 |𝑓|!func! or !f!|Function symbol|
 |||
+|𝑖|!i!|Algebraic "i"|
 |∞|!infinity!|Infinity|
 |⇒|!imply!|Logical implication|
 |||
@@ -80,6 +81,7 @@ _As of 23/02/2025_
 |||
 |𝑙|!l!|Algebraic "l"|
 |\$㏒$|!log!|Logarithm symbol|
+|\$\㏒(a)$|!log(a)!|Logarithm symbol|
 |||
 |𝑚|!m!|Algebraic "m"|
 |||

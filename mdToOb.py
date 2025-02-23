@@ -16,6 +16,7 @@ def format_LaTeX(text):
         (r"!sum\((.*?)\)\((.*?)\)!", r"$\\sum_{\1}^{\2}$"), # Format sums
         (r"!sqrt\((.*?)\)!", r"$\\sqrt{\1}$"), # Format square roots
         (r"!\((.*?)\)/\((.*?)\)!", r"$\\frac{\1}{\2}$"), # Format fractions
+        (r"!log\((.*?)\)!", r"$\\log{\1}$"), # Format logarithms
     ]
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text)
@@ -48,7 +49,7 @@ def replaceSymbols(data, lineNumber):
         ["!f!","𝑓"],["!func!","𝑓"],
         ["!!","!!"],
         ["!!","!!"],
-        ["!infinity!","∞"],["!imply!","⇒"],
+        ["!i!","𝑖"],["!infinity!","∞"],["!imply!","⇒"],
         ["!!","!!"],
         ["!k!","𝑘"],
         ["!l!","𝑙"],["!log!","$㏒$"],
