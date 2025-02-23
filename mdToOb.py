@@ -6,143 +6,135 @@ import re
 def writeTo(data,path):
     with open(path,"w",encoding="utf-8") as file:
         file.writelines(data)
-        file.close()
 def readFrom(path):
     with open(path,"r", encoding="utf-8", errors="replace") as file:
-        data=file.readlines()
-        file.close()
+        data = file.readlines()
     return data
 
-def format_LaTeX(inpt):
-    # Format sums
-    pattern = r"!sum\((.*?)\)\((.*?)\)!"
-    replacement = r"$\\sum_{\1}^{\2}$"
-    inpt = re.sub(pattern, replacement, inpt)
-    # Format square roots
-    pattern = r"!sqrt\((.*?)\)!"
-    replacement = r"$\\sqrt{\1}$"
-    inpt = re.sub(pattern, replacement, inpt)
-    # Format fractions
-    pattern = r"!\((.*?)\)/\((.*?)\)!"
-    replacement = r"$\\frac{\1}{\2}$"
-    inpt = re.sub(pattern, replacement, inpt)
-    return inpt
+def format_LaTeX(text):
+    replacements = [
+        (r"!sum\((.*?)\)\((.*?)\)!", r"$\\sum_{\1}^{\2}$"), # Format sums
+        (r"!sqrt\((.*?)\)!", r"$\\sqrt{\1}$"), # Format square roots
+        (r"!\((.*?)\)/\((.*?)\)!", r"$\\frac{\1}{\2}$"), # Format fractions
+    ]
+    for pattern, replacement in replacements:
+        text = re.sub(pattern, replacement, text)
+    return text
 
+# Check for previous formatting and adjust
+def checkPrevFormat(data):
+    lineNum = 0
+    for item in data:
+        if '<hr style="border-color:#52308c">' in item:
+            if data[lineNum + 1]=="\n":
+                data = data[lineNum + 2:]
+            else:
+                data = data[lineNum + 1:]
+            lineNum = 0
+        lineNum += 1
+    return data
+
+
+def replaceSymbols(data, lineNumber):
+    toReplace = [
+        ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
+            ["!!|!", "∤"],["!+-!","±"],["!~!","≈"],
+        ["!0!","θ"],
+        ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
+        ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
+        ["!c!","𝑐"],["!complem!","<sup>c</sup>"],["!compos!","<sup>o</sup>"],["!conv!","⊗"],
+        ["!deriv!","⊢"],
+        ["!E!","∈"],["!!E!","∉"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!eps!","ε"],["!equiv!","⇔"],
+        ["!f!","𝑓"],["!func!","𝑓"],
+        ["!!","!!"],
+        ["!!","!!"],
+        ["!infinity!","∞"],["!imply!","⇒"],
+        ["!!","!!"],
+        ["!!","!!"],
+        ["!!","!!"],
+        ["!!","!!"],
+        ["!N!","ℕ"],["!n!","∩"],["!NOT!","¬"],
+        ["!OMEGA!","Ω"],["!omega!","ω"],["!OR!","∨"],
+        ["!p!","𝑝"],["!phi!","ϕ"],["!pi!","π"],["!power!","𝒫"],["!psub!","⊂"],["!psup!","⊃"],
+        ["!q!","𝑞"],["!Q!","ℚ"],
+        ["!r!","𝑟"],["!R!","ℝ"],
+        ["!sigma!","Σ"],["!so!","∴"],["!some!","∃"],["!sqrt!","√"],
+            ["!sub!","⊆"],["!sum!","Σ"],["!sup!","⊇"],
+        ["!theta!","θ"],
+        ["!u!","∪"],
+        ["!v!","∨"],["!V!","∨"],
+        ["!!","!!"],
+        ["!x!","𝑥"],
+        ["!y!","𝑦"],
+        ["!z!","𝑧"],["!Z!","ℤ"],
+    ]
+    for replace in toReplace:
+            data[lineNumber] = data[lineNumber].replace(replace[0], replace[1])
+            data[lineNumber] = format_LaTeX(data[lineNumber])
+    return data
+
+def makeToC(data):
+    # Find indexes of headingIndexes
+    inCode = False
+    headingIndexes = []
+    for lineNum in range(len(data)):
+        data = replaceSymbols(data, lineNum)
+        if "```" in data[lineNum]:
+            inCode = not inCode
+        # If hasthag is part of a heading ("# someHeading" & not in code block)
+        if data[lineNum][0] == "#" and data[lineNum].replace("#","")[0] == " " and not inCode:
+            headingIndexes.append(lineNum)
+
+    # Add links for each heading to ToC
+    nextHeading = 0
+    tableOfContents = []
+    offset = 0
+    for i in range(len(data)):
+        numHashtags = 0
+        if i == headingIndexes[nextHeading]:
+            x = 0
+            for char in data[i + offset]:
+                if char == "#":
+                    numHashtags += 1
+                elif char == " ":
+                    headingName = data[i + offset][x:].strip().replace("\n","")
+                    break
+                x += 1
+            if i == 0 and numHashtags > 1:
+                tableOfContents.append("- \n")
+            # Make an Obsidian link ("[[#someHeading]]") with indentation based on heading level
+            tableOfContents.append(f"{'    '*(numHashtags - 1)}- [[#{headingName}]]\n")
+            if nextHeading == len(headingIndexes)-1:
+                break
+            else:
+                nextHeading += 1
+
+    # Add extra (HTML) formatting
+    data.insert(0,'# <span class="highHeader">Table of Contents</span>\n')
+    for i in range(len(tableOfContents)):
+        data.insert(1, tableOfContents[len(tableOfContents) - i - 1])
+    data.insert(len(tableOfContents) + 1, '<hr style="border-color:#52308c">\n')
+    data.insert(len(tableOfContents) + 1, "\n")
+    data.insert(len(tableOfContents) + 3, "\n")
+    return data
 
 def main():
     path=input("Enter a file name (or leave empty for previous file): ").replace('"','')
-    if len(path)==0:
+    if len(path) == 0:
         path = readFrom("prevPath.txt")[0].replace("\n","")
     else:
         writeTo([path], "prevPath.txt")
-    data=readFrom(path)
+    data = readFrom(path)
+    # Remove unneeded lines
     for i in range(len(data)):
-        if len(data[i].strip().replace("\n",""))==0:
+        if len(data[i].strip().replace("\n","")) == 0:
             data.pop(i)
         else:
             break
-    headings=[]
-    count=0
-    prevFormat=False
-    for item in data:
-        if '<hr style="border-color:#52308c">' in item:
-            if data[count+1]=="\n":
-                data=data[count+2:]
-            else:
-                data=data[count+1:]
-            count=0
-            headings=[]
-            prevFormat=True
-        elif prevFormat==True and item=="# Beginning\n":
-            data=data[count:]
-            break
-        count+=1
-    count=0
-    inCode = False
-    toReplace=[["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
-                  ["!!|!", "∤"],["!+-!","±"],["!~!","≈"],
-               ["!0!","θ"],
-               ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
-               ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
-               ["!c!","𝑐"],["!complem!","<sup>c</sup>"],["!compos!","<sup>o</sup>"],["!conv!","⊗"],
-               ["!deriv!","⊢"],
-               ["!E!","∈"],["!!E!","∉"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!eps!","ε"],["!equiv!","⇔"],
-               ["!f!","𝑓"],["!func!","𝑓"],
-               ["!!","!!"],
-               ["!!","!!"],
-               ["!infinity!","∞"],["!imply!","⇒"],
-               ["!!","!!"],
-               ["!!","!!"],
-               ["!!","!!"],
-               ["!!","!!"],
-               ["!N!","ℕ"],["!n!","∩"],["!NOT!","¬"],
-               ["!OMEGA!","Ω"],["!omega!","ω"],["!OR!","∨"],
-               ["!p!","𝑝"],["!phi!","ϕ"],["!pi!","π"],["!power!","𝒫"],["!psub!","⊂"],["!psup!","⊃"],
-               ["!q!","𝑞"],["!Q!","ℚ"],
-               ["!r!","𝑟"],["!R!","ℝ"],
-               ["!sigma!","Σ"],["!so!","∴"],["!some!","∃"],["!sqrt!","√"],
-                   ["!sub!","⊆"],["!sum!","Σ"],["!sup!","⊇"],
-               ["!theta!","θ"],
-               ["!u!","∪"],
-               ["!v!","∨"],["!V!","∨"],
-               ["!!","!!"],
-               ["!x!","𝑥"],
-               ["!y!","𝑦"],
-               ["!z!","𝑧"],["!Z!","ℤ"],
-            ]
-                        
-    for item in data:
-        if "```" in item:
-            if inCode==True:
-                inCode=False
-            else:
-                inCode=True
-        if item[0]=="#" and item.replace("#","")[0]==" " and not inCode:
-            headings.append(count)
-        for rep in toReplace:
-            data[count]=data[count].replace(rep[0],rep[1])
-            data[count] = format_LaTeX(data[count]) ##MAY CAUSE ISSUES?
-        count+=1
-    nextHeading=0
-    table=[]
-    offset=0
-    for i in range(len(data)):
-        numHashtags=0
-        #print(i==headings[nextHeading])
-        if i==headings[nextHeading]:
-            x=0
-            # Suggestion
-            #numHashtags = data[i].count('#')
-            #headingName = data[i].strip().replace("#", "").strip()
 
-            for char in data[i+offset]:
-                if char=="#":
-                    numHashtags+=1
-                if char==" ":
-                    headingName=data[i+offset][x:].strip().replace("\n","")
-                    #print(f"--{headingName}--")
-                    break
-                x+=1
-            # print("\t"*(numHashtags-1)+"- "+headingName)
-            #print(i,numHashtags)
-            if i==0 and numHashtags>1:
-                table.append("- \n")
-            table.append(f"{'    '*(numHashtags-1)}- [[#{headingName}]]\n")
-            if nextHeading==len(headings)-1:
-                break
-            else:
-                nextHeading+=1
-        else:
-            if i==0 and headings[nextHeading]>i and prevFormat==False:
-                data.insert(0,"# Beginning\n")
-                offset=1
-                table.insert(0,"- [[#Beginning]]\n")
-    data.insert(0,'# <span class="highHeader">Table of Contents</span>\n')
-    for i in range(len(table)):
-        data.insert(1,table[len(table)-i-1])
-    data.insert(len(table)+1,'<hr style="border-color:#52308c">\n')
-    data.insert(len(table)+1,"\n")
-    data.insert(len(table)+3,"\n")
-    writeTo(data,path)
+    data = checkPrevFormat(data)
+
+    data = makeToC(data)
+    writeTo(data, path)
 
 main()
