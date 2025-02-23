@@ -79,11 +79,12 @@ _As of 23/02/2025_
 |𝑘|!k!|Algebraic "k"|
 |||
 |𝑙|!l!|Algebraic "l"|
+|\$㏒$|!log!|Logarithm symbol|
 |||
 |𝑚|!m!|Algebraic "m"|
 |||
 |ℕ|!N!|Set of natural numbers|
-|𝑛|!n!|Algebraic "n"|
+|𝑛|!"n"!|Algebraic "n"|
 |∩|!n!|Set intersection|
 |¬|!NOT!|Logical negation|
 |||
