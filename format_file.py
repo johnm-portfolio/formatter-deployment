@@ -2,12 +2,13 @@
 # - only works if there is at least one heading
 
 import re
+import sys
 
 def writeTo(data,path):
     with open(path,"w",encoding="utf-8") as file:
         file.writelines(data)
-def readFrom(path):
-    with open(path,"r", encoding="utf-8", errors="replace") as file:
+def readFrom(inputPath):
+    with open(inputPath,"r", encoding="utf-8", errors="replace") as file:
         data = file.readlines()
     return data
 
@@ -120,12 +121,17 @@ def makeToC(data):
     return data
 
 def main():
-    path=input("Enter a file name (or leave empty for previous file): ").replace('"','')
-    if len(path) == 0:
-        path = readFrom("prevPath.txt")[0].replace("\n","")
+    # If not called from XAMPP
+    if len(sys.argv) != 3:
+        inputPath = input("Enter a file name (or leave empty for previous file): ").replace('"','')
+        if len(inputPath) == 0:
+            inputPath = readFrom("prevPath.txt")[0].replace("\n","")
+        else:
+            writeTo([inputPath], "prevPath.txt")
     else:
-        writeTo([path], "prevPath.txt")
-    data = readFrom(path)
+        inputPath = sys.argv[1]
+        outputFile = sys.argv[2]
+    data = readFrom(inputPath)
     # Remove unneeded lines
     for i in range(len(data)):
         if len(data[i].strip().replace("\n","")) == 0:
@@ -134,8 +140,38 @@ def main():
             break
 
     data = checkPrevFormat(data)
-
     data = makeToC(data)
-    writeTo(data, path)
+
+    if len(sys.argv) == 3:
+        try:
+            writeTo(data, outputFile)
+        except Exception as e:
+            print("Error processing file:", e)
+            sys.exit(1)
+    else:
+        writeTo(data, inputPath)
 
 main()
+
+#########
+# def process_content(content):
+#     # Example: convert text to uppercase
+#     return content.upper()
+
+# if __name__ == "__main__":
+#     if len(sys.argv) != 3:
+#         print("Usage: python3 process_file.py input_file output_file")
+#         sys.exit(1)
+    
+#     input_file = sys.argv[1]
+#     output_file = sys.argv[2]
+    
+#     try:
+#         with open(input_file, "r", encoding="utf-8") as infile:
+#             content = infile.read()
+#         new_content = process_content(content)
+#         with open(output_file, "w", encoding="utf-8") as outfile:
+#             outfile.write(new_content)
+#     except Exception as e:
+#         print("Error processing file:", e)
+#         sys.exit(1)

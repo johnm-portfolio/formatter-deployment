@@ -10,7 +10,6 @@ themeButton.addEventListener("click", changeTheme);
 
 const filterDropdown = document.getElementById('filter');
 const tableRows = document.querySelectorAll('tbody tr');
-
 function changeTheme(){
     let themeStyle = "dark";
     if (body.className == "dark-theme-main") {
@@ -23,7 +22,7 @@ function changeTheme(){
     tableBody.className = `${themeStyle}-theme-table-body`;
     tableHead.className = `${themeStyle}-theme-table-heading`;
     themeButton.className = `${themeStyle}-theme-button`;
-    themeButtonImg.src = `Images/${themeStyle}_theme_button_icon.png`;
+    themeButtonImg.src = `website/images/${themeStyle}_theme_button_icon.png`;
 }
 
 filterDropdown.addEventListener('change', applyFilter);
