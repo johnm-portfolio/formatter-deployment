@@ -44,12 +44,13 @@ _As of 23/02/2025_
 |≠|!!=!|Not equal to|
 |∤|!!\|!|Not a factor of|
 |±|!+-!|Plus-minus sign|
+|\<span style="font-size:21px">~</span>|!~! or !relate!|Relation (larger font)|
 |\$\frac{a}{b}$|!(a)/(b)!|LaTeX fraction notation|
 |||
 |𝑎|!a!|Algebraic "a"|
 |∀|!all!|Universal quantification|
 |α|!alpha!|Greek lowercase alpha|
-|≈|!approx! or !~!|Approximately equal to|
+|≈|!approx! or !~=!|Approximately equal to|
 |||
 |𝔹|!B!|Set of binary numbers|
 |𝑏|!b!|Algebraic "b"|
@@ -81,7 +82,7 @@ _As of 23/02/2025_
 |||
 |𝑙|!l!|Algebraic "l"|
 |\$㏒$|!log!|Logarithm symbol|
-|\$\㏒(a)$|!log(a)!|Logarithm symbol|
+|\$\㏒{a}$|!log(a)!|Logarithm symbol|
 |||
 |𝑚|!m!|Algebraic "m"|
 |||

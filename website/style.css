@@ -15,6 +15,7 @@
     --button-bg-colour-light: #fff;
 }
 
+/* Colour theme styles */
 .dark-theme-main {
     background-color: var(--main-bg-colour-dark);
     color: var(--main-txt-colour-dark);
@@ -61,6 +62,7 @@ body {
     cursor: pointer;
 }
 
+/* Themes for the symbol table */
 .symbol {
     cursor: pointer;
 }
