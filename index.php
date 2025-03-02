@@ -11,7 +11,8 @@
   <body class="dark-theme-main">
     <ul>
       <li><a href="website/symbol-table.html">Symbol table</a></li>
-      <li><a href="website/online-formatter.html">Format online</a></li>
+      <li><a href="website/online-formatter.html">Format online</a>
+      <li><b>The download will not work on Netlify (current host)</b></li>
     </ul>
   </body>
 </html>
