@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+print("Content-Type: text/html")
+print()  # End of the headers
+
 # NOTES
 # - only works if there is at least one heading
 
