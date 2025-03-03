@@ -27,7 +27,7 @@ With regular use, common representations are easily remembered and I designed th
 ## Symbol Table
 Note that raw markdown text for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display as its symbol (if viewed in a markdown engine), this is so that the literal replacement can be visually seen.
 
-_As of 23/02/2025_
+_As of 03/03/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -73,6 +73,8 @@ _As of 23/02/2025_
 |⇔|!equiv!|Logical equivalence|
 |||
 |𝑓|!func! or !f!|Function symbol|
+|||
+|γ|!gamma!|Greek lowercase gamma|
 |||
 |𝑖|!i!|Algebraic "i"|
 |∞|!infinity!|Infinity|
