@@ -27,7 +27,6 @@ With regular use, common representations are easily remembered and I designed th
 ## Symbol Table
 Note that raw markdown text for symbols may contain backslashes to escape symbols such as $ that would cause LaTeX formatting to display as its symbol (if viewed in a markdown engine), this is so that the literal replacement can be visually seen.
 
-_As of 03/03/2025_
 |Symbol|Representation|Description|
 |------|--------------|-----------|
 |'|‘|Left single quote|
@@ -61,6 +60,7 @@ _As of 03/03/2025_
 |ᵒ|!compos!|Function composition|
 |⊗|!conv!|Convolution|
 |||
+|δ|!delta!|Greek lowercase delta|
 |⊢|!deriv!|Derivable|
 |||
 |∈|!E!|Set membership|
@@ -89,6 +89,7 @@ _As of 03/03/2025_
 |𝑚|!m!|Algebraic "m"|
 |||
 |ℕ|!N!|Set of natural numbers|
+|𝒩|!"N"!|Curly "N"|
 |𝑛|!"n"!|Algebraic "n"|
 |∩|!n!|Set intersection|
 |¬|!NOT!|Logical negation|
