@@ -90,38 +90,41 @@ def makeToC(data):
         # If hasthag is part of a heading ("# someHeading" & not in code block)
         if data[lineNum][0] == "#" and data[lineNum].replace("#","")[0] == " " and not inCode:
             headingIndexes.append(lineNum)
+            if data[lineNum - 1][0:2] == "- ":
+                data[lineNum - 1] = data [lineNum - 1] + "\n"
 
     # Add links for each heading to ToC
-    nextHeading = 0
-    tableOfContents = []
-    offset = 0
-    for i in range(len(data)):
-        numHashtags = 0
-        if i == headingIndexes[nextHeading]:
-            x = 0
-            for char in data[i + offset]:
-                if char == "#":
-                    numHashtags += 1
-                elif char == " ":
-                    headingName = data[i + offset][x:].strip().replace("\n","")
+    if len(headingIndexes) > 0:
+        nextHeading = 0
+        tableOfContents = []
+        offset = 0
+        for i in range(len(data)):
+            numHashtags = 0
+            if i == headingIndexes[nextHeading]:
+                x = 0
+                for char in data[i + offset]:
+                    if char == "#":
+                        numHashtags += 1
+                    elif char == " ":
+                        headingName = data[i + offset][x:].strip().replace("\n","")
+                        break
+                    x += 1
+                if i == 0 and numHashtags > 1:
+                    tableOfContents.append("- \n")
+                # Make an Obsidian link ("[[#someHeading]]") with indentation based on heading level
+                tableOfContents.append(f"{'    '*(numHashtags - 1)}- [[#{headingName}]]\n")
+                if nextHeading == len(headingIndexes)-1:
                     break
-                x += 1
-            if i == 0 and numHashtags > 1:
-                tableOfContents.append("- \n")
-            # Make an Obsidian link ("[[#someHeading]]") with indentation based on heading level
-            tableOfContents.append(f"{'    '*(numHashtags - 1)}- [[#{headingName}]]\n")
-            if nextHeading == len(headingIndexes)-1:
-                break
-            else:
-                nextHeading += 1
+                else:
+                    nextHeading += 1
 
-    # Add extra (HTML) formatting
-    data.insert(0,'# <span class="highHeader">Table of Contents</span>\n')
-    for i in range(len(tableOfContents)):
-        data.insert(1, tableOfContents[len(tableOfContents) - i - 1])
-    data.insert(len(tableOfContents) + 1, '<hr style="border-color:#52308c">\n')
-    data.insert(len(tableOfContents) + 1, "\n")
-    data.insert(len(tableOfContents) + 3, "\n")
+        # Add extra (HTML) formatting
+        data.insert(0,'# <span class="highHeader">Table of Contents</span>\n')
+        for i in range(len(tableOfContents)):
+            data.insert(1, tableOfContents[len(tableOfContents) - i - 1])
+        data.insert(len(tableOfContents) + 1, '<hr style="border-color:#52308c">\n')
+        data.insert(len(tableOfContents) + 1, "\n")
+        data.insert(len(tableOfContents) + 3, "\n")
     return data
 
 def main():
