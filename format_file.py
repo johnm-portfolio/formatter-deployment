@@ -99,15 +99,20 @@ def makeToC(data):
         tableOfContents = []
         offset = 0
         for i in range(len(data)):
+            currLine = data[i + offset]
             numHashtags = 0
             if i == headingIndexes[nextHeading]:
                 x = 0
-                for char in data[i + offset]:
-                    if char == "#":
+                for j in range(len(currLine)):
+                    if currLine[j] == "#":
                         numHashtags += 1
-                    elif char == " ":
-                        headingName = data[i + offset][x:].strip().replace("\n","")
+                    elif currLine[j] == "<":
+                        headingName = currLine[x:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
+                    elif currLine[j] == " ":
+                        headingName = currLine[x:].strip().replace("\n","")
+                        if "<" not in currLine:
+                            break
                     x += 1
                 if i == 0 and numHashtags > 1:
                     tableOfContents.append("- \n")
