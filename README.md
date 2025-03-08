@@ -120,12 +120,14 @@ Note that raw markdown text for symbols may contain backslashes to escape symbol
 |⊇|!sup!|Improper superset|
 |||
 |θ|!theta! or !0!|Greek lowercase theta|
+|✓|!tick!|Tick symbol|
 |||
 |∪|!u!|Set union|
 |||
 |∨|!V! or !v! or !OR!|Logical disjunction|
 |||
 |𝑥|!x!|Algebraic "x"|
+|✕|!X!|Cross symbol|
 |||
 |𝑦|!y!|Algebraic "y"|
 |||
