@@ -2,8 +2,7 @@
 print("Content-Type: text/html")
 print()  # End of the headers
 
-# NOTES
-# - only works if there is at least one heading
+# TODO: headings in the form "# [[someLink]]" or "# [[someLink|displayed]]"
 
 import re
 import sys

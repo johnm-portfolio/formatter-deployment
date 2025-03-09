@@ -9,10 +9,54 @@
   </head>
 
   <body class="dark-theme-main">
-    <ul>
-      <li><a href="website/symbol-table.html">Symbol table</a></li>
-      <li><a href="website/online-formatter.html">Format online</a>
-      <li><b>The download will not work on Netlify (current host)</b></li>
-    </ul>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li><a href="website/symbol-table.html">Symbol table</a></li>
+        <li><a href="website/online-formatter.html">Format online</a></li>
+        <li><b>The download will not work on Netlify (current host)</b></li>
+        <ul><li><i>(The download will not work on Netlify)</i></li></ul>
+      </ul>
+    </nav>
+    <hr>
+
+    <main>
+      <h1>Symbol Formatter</h1>
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#symbol-table">Symbol Table</a></li>
+      </ul>
+
+      <h2 id="installation">Installation</h2>
+      <p>The program works by running a Python file, which will either take command line arguments or prompt for an input.
+        There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
+      </p>
+      <p>To make a shortcut that runs it, create a new shortcut with the location set to 
+          <code>powershell.exe -ExecutionPolicy Bypass -File "&lt;yourPath&gt;/runMdToOb.ps1"</code>
+          (where <code>&lt;yourPath&gt;</code> is replaced with the absolute path to the parent folder).
+      </p>
+      <ul>
+        <li>e.g. <code>powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/symbol_formatter/runMdToOb.ps1"</code></li>
+      </ul>
+      <p>Alternatively, set the location as <code>powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1</code> 
+        and then edit the Properties of it, by right clicking on the created shortcut, and set the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")</p>
+
+      <h2 id="#description">Description</h2>
+      <p>This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or other processed format.
+        <ul>
+          <li>It sterilises the provided text, such as replacing symbols that represent quotation marks into actual quotation marks</li>
+          <li>It also structures notes to include a customised table of contents at the top</li>
+        </ul>
+      </p>
+      <p><a href="website/symbol-table.html">This page</a> contains a filterable list of all the symbols</p>
+
+      <h2 id="Purpose">Purpose</h2>
+      <p>With regular use, common representations are easily remembered and I designed them to be as intuitive as possible, some 'symbols' having multiple different representations for ease of use. 
+        However, if any are forgotten having a table proves useful, I had one in my Obsidian vault (where I took notes) for quick reference.
+      </p>
+    </main>
   </body>
 </html>

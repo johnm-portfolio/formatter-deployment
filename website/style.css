@@ -2,7 +2,7 @@
 
 :root {
     /* Dark theme */
-    --main-bg-colour-dark: #383838;
+    --main-bg-colour-dark: #454545;
     --main-txt-colour-dark: #e3e3e3;
     --table-body-bg-colour-dark: #757575;
     --table-head-bg-colour-dark: #5c5b5b;
@@ -50,7 +50,8 @@ body {
     font-size: 1.1rem;
 }
 
-a:visited {color: #b38aff;}
+a:link { color: #a1dcff; }
+a:visited { color: #b38aff; }
 
 #theme-button {
     position: fixed;
@@ -99,3 +100,5 @@ th {
     font-size: 0.8rem;
     margin-left: -5px;
 }
+
+code { background-color: #303030; }
