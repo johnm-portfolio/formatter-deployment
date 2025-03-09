@@ -48,7 +48,7 @@ def replaceSymbols(data, lineNumber):
         ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
         ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
         ["!c!","𝑐"],["!complem!","<sup>c</sup>"],["!compos!","<sup>o</sup>"],["!conv!","⊗"],
-        ["!delta!","δ"],["!deriv!","⊢"],
+        ["!d!","𝑑"],["!delta!","δ"],["!deriv!","⊢"],
         ["!!E!","∉"],["!E!","∈"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!eps!","ε"],["!equiv!","⇔"],
         ["!f!","𝑓"],["!func!","𝑓"],
         ["!gamma!","γ"],

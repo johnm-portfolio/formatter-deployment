@@ -60,6 +60,7 @@ Note that raw markdown text for symbols may contain backslashes to escape symbol
 |ᵒ|!compos!|Function composition|
 |⊗|!conv!|Convolution|
 |||
+|𝑑|!d!|Algebraic "d"|
 |δ|!delta!|Greek lowercase delta|
 |⊢|!deriv!|Derivable|
 |||
