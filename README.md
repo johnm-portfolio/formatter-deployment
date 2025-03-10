@@ -45,6 +45,7 @@ Note that raw markdown text for symbols may contain backslashes to escape symbol
 |±|!+-!|Plus-minus sign|
 |\<span style="font-size:21px">~</span>|!~! or !relate!|Relation (larger font)|
 |\$\frac{a}{b}$|!(a)/(b)!|LaTeX fraction notation|
+|·|!.!|Interpunct (dot multiplication)|
 |||
 |𝑎|!a!|Algebraic "a"|
 |∀|!all!|Universal quantification|
@@ -80,6 +81,8 @@ Note that raw markdown text for symbols may contain backslashes to escape symbol
 |𝑖|!i!|Algebraic "i"|
 |∞|!infinity!|Infinity|
 |⇒|!imply!|Logical implication|
+|||
+|𝑗|!j!|Algebraic "j"|
 |||
 |𝑘|!k!|Algebraic "k"|
 |||
