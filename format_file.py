@@ -2,7 +2,10 @@
 print("Content-Type: text/html")
 print()  # End of the headers
 
-# TODO: headings in the form "# [[someLink]]" or "# [[someLink|displayed]]"
+# TODO:
+# - headings in the form "# [[someLink]]" or "# [[someLink|displayed]]"
+#   - [[#Software Engineering/Course/Introduction to Algorithms and Data Structures/Week 3 Building a Data Structure Data Structures|Data Structures]]
+# - add reverse process?
 
 import re
 import sys
@@ -47,16 +50,16 @@ def replaceSymbols(data, lineNumber):
         ["!0!","θ"],
         ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
         ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
-        ["!c!","𝑐"],["!complem!","<sup>c</sup>"],["!compos!","<sup>o</sup>"],["!conv!","⊗"],["!cross!","✕"],
-        ["!d!","𝑑"],["!delta!","δ"],["!deriv!","⊢"],
+        ["!c!","𝑐"],["!chi!","χ"],["!complem!","<sup>c</sup>"],["!comp!","<sup>o</sup>"],["!conv!","⊗"],["!cross!","✕"],
+        ["!d!","𝑑"],["!deg!","°"],["!delta!","δ"],["!deriv!","⊢"],
         ["!!E!","∉"],["!E!","∈"],["!e!","𝑒"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!eps!","ε"],["!equiv!","⇔"],
         ["!f!","𝑓"],["!func!","𝑓"],
         ["!g!","𝑔"],["!gamma!","γ"],
         ["!h!","ℎ"],
-        ["!i!","𝑖"],["!infinity!","∞"],["!imply!","⇒"],
+        ["!I!","𝐼"],["!i!","𝑖"],["!infinity!","∞"],["!imply!","⇒"],
         ["!j!","𝑗"],
         ["!k!","𝑘"],
-        ["!l!","𝑙"],["!log!","$㏒$"],
+        ["!l!","𝑙"],["!lambda!","λ"],["!log!","$㏒$"],
         ["!m!","𝑚"],
         ["!N!","ℕ"],['!"N"!',"𝒩"],["!n!","∩"],['!"n"!',"𝑛"],["!NOT!","¬"],
         ["!o!","𝑜"],["!OMEGA!","Ω"],["!omega!","ω"],["!OR!","∨"],
