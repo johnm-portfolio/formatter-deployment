@@ -105,9 +105,15 @@ def makeToC(data):
             numHashtags = 0
             if i == headingIndexes[nextHeading]:
                 x = 0
+                startHashFound = False
                 for j in range(len(currLine)):
                     if currLine[j] == "#":
-                        numHashtags += 1
+                        if startHashFound:
+                            numHashtags += 1
+                            startHashFound = True
+                        else:
+                            headingName = currLine[x + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
+                            break
                     elif currLine[j] == "<":
                         headingName = currLine[x:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
