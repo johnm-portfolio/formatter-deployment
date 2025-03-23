@@ -18,12 +18,14 @@ def readFrom(inputPath):
         data = file.readlines()
     return data
 
-def format_LaTeX(text):
+def format_formulae(text):
     replacements = [
         (r"!sum\((.*?)\)\((.*?)\)!", r"$\\sum_{\1}^{\2}$"), # Format sums
         (r"!sqrt\((.*?)\)!", r"$\\sqrt{\1}$"), # Format square roots
         (r"!\((.*?)\)/\((.*?)\)!", r"$\\frac{\1}{\2}$"), # Format fractions
         (r"!log\((.*?)\)!", r"$\\log{\1}$"), # Format logarithms
+        (r"!floor\((.*?)\)!", r"⌊\1⌋"), (r"!rdown\((.*?)\)!", r"⌊\1⌋"), # Format rounding up
+        (r"!ceil\((.*?)\)!", r"⌈\1⌉"), (r"!rup\((.*?)\)!", r"⌊\1⌋") # Format rounding down
     ]
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text)
@@ -78,7 +80,7 @@ def replaceSymbols(data, lineNumber):
     ]
     for replace in toReplace:
             data[lineNumber] = data[lineNumber].replace(replace[0], replace[1])
-            data[lineNumber] = format_LaTeX(data[lineNumber])
+            data[lineNumber] = format_formulae(data[lineNumber])
     return data
 
 def makeToC(data):
@@ -107,9 +109,8 @@ def makeToC(data):
                 startHashFound = False
                 for j in range(len(currLine)):
                     if currLine[j] == "#":
-                        if startHashFound:
+                        if not startHashFound:
                             numHashtags += 1
-                            startHashFound = True
                         else:
                             headingName = currLine[j + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             break
@@ -117,6 +118,7 @@ def makeToC(data):
                         headingName = currLine[j:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
                     elif currLine[j] == " ":
+                        startHashFound = True
                         headingName = currLine[j:].strip().replace("\n","")
                         if "<" not in currLine:
                             break

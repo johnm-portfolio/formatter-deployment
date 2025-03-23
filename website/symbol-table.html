@@ -32,7 +32,7 @@
       <option value="algebra-symbols">Algebra Symbols</option>
       <option value="greek-letters">Greek Letters</option>
       <option value="set-symbols">Set Symbols</option>
-      <option value="LaTeX-notation">LaTeX Notation</option>
+      <option value="formulae-notation">LaTeX Notation</option>
       <option value="logic-symbols">Logic Symbols</option>
       <option value="mathematical-symbols">Mathematical Symbols</option>
       <option value="other">Other</option>
@@ -123,7 +123,7 @@
           <td>!~! or !relate!</td>
           <td>A larger "~" symbol</td>
         </tr>
-        <tr class="mathematical-symbols LaTeX-notation">
+        <tr class="mathematical-symbols formulae-notation">
           <td class="symbol" data-value="$\frac{a}{b}$"><sup>a</sup>/<sub>b</sub></td>
           <td>!(a)/(b)!</td>
           <td>LaTeX fraction notation</td>
@@ -175,6 +175,11 @@
           <td class="symbol">𝑐</td>
           <td>!c!</td>
           <td>Algebraic "c"</td>
+        </tr>
+        <tr class="formulae-notation">
+          <td class="symbol">⌈something⌉</td>
+          <td>!ceil(something)! or !rup(something)!</td>
+          <td>Notation for rounding up</td>
         </tr>
         <tr class="greek-letters">
           <td class="symbol">χ</td>
@@ -273,6 +278,11 @@
           <td class="symbol">𝑓</td>
           <td>!f! or !func!</td>
           <td>Function symbol (algebraic "f")</td>
+        </tr>
+        <tr class="formulae-notation">
+          <td class="symbol">⌊something⌋</td>
+          <td>!floor(something)! or !rdown(something)!</td>
+          <td>Notation for rounding down</td>
         </tr>
 
         <tr class="algebra-symbols">
@@ -472,7 +482,7 @@
           <td>!sqrt!</td>
           <td>Square root</td>
         </tr>
-        <tr class="mathematical-symbols LaTeX-notation">
+        <tr class="mathematical-symbols formulae-notation">
           <td class="symbol" data-value="$\sqrt{a}$">
             <span style="white-space: nowrap">&radic;<span style="text-decoration:overline;">&nbsp;a&nbsp;</span></span>
           </td>
@@ -489,7 +499,7 @@
           <td>!sum! or !sigma!</td>
           <td>Greek uppercase sigma (mathematical sum)</td>
         </tr>
-        <tr class="mathematical-symbols LaTeX-notation">
+        <tr class="mathematical-symbols formulae-notation">
           <td class="symbol" data-value="$\sum_{a}^{b}$">
             <span id="sum-format">&Sigma;<sub>a</sub><sup>b</sup></span>
           </td>
