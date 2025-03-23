@@ -104,7 +104,6 @@ def makeToC(data):
             currLine = data[i + offset]
             numHashtags = 0
             if i == headingIndexes[nextHeading]:
-                x = 0
                 startHashFound = False
                 for j in range(len(currLine)):
                     if currLine[j] == "#":
@@ -112,16 +111,15 @@ def makeToC(data):
                             numHashtags += 1
                             startHashFound = True
                         else:
-                            headingName = currLine[x + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
+                            headingName = currLine[j + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             break
                     elif currLine[j] == "<":
-                        headingName = currLine[x:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
+                        headingName = currLine[j:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
                     elif currLine[j] == " ":
-                        headingName = currLine[x:].strip().replace("\n","")
+                        headingName = currLine[j:].strip().replace("\n","")
                         if "<" not in currLine:
                             break
-                    x += 1
                 if i == 0 and numHashtags > 1:
                     tableOfContents.append("- \n")
                 # Make an Obsidian link ("[[#someHeading]]") with indentation based on heading level
