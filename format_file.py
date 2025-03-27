@@ -25,7 +25,7 @@ def format_formulae(text):
         (r"!\((.*?)\)/\((.*?)\)!", r"$\\frac{\1}{\2}$"), # Format fractions
         (r"!log\((.*?)\)!", r"$\\log{\1}$"), # Format logarithms
         (r"!floor\((.*?)\)!", r"⌊\1⌋"), (r"!rdown\((.*?)\)!", r"⌊\1⌋"), # Format rounding up
-        (r"!ceil\((.*?)\)!", r"⌈\1⌉"), (r"!rup\((.*?)\)!", r"⌊\1⌋") # Format rounding down
+        (r"!ceil\((.*?)\)!", r"⌈\1⌉"), (r"!rup\((.*?)\)!", r"⌈\1⌉") # Format rounding down
     ]
     for pattern, replacement in replacements:
         text = re.sub(pattern, replacement, text)
@@ -47,7 +47,8 @@ def checkPrevFormat(data):
 
 def replaceSymbols(data, lineNumber):
     toReplace = [
-        ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
+        ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<-!","←"],
+            ["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
             ["!!|!", "∤"],["!+-!","±"],["!~!","<span style='font-size:21px'>~</span>"],["!~=!","≈"],["!.!",r"$\cdot$"],
         ["!0!","θ"],
         ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
@@ -109,19 +110,19 @@ def makeToC(data):
                 startHashFound = False
                 for j in range(len(currLine)):
                     if currLine[j] == "#":
-                        if not startHashFound:
-                            numHashtags += 1
-                        else:
-                            headingName = currLine[j + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
-                            break
+                        numHashtags += 1
                     elif currLine[j] == "<":
                         headingName = currLine[j:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
                     elif currLine[j] == " ":
-                        startHashFound = True
-                        headingName = currLine[j:].strip().replace("\n","")
-                        if "<" not in currLine:
+                        if "|" in currLine:
+                            # headingName = currLine[j + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
+                            headingName = currLine[j + 3:-2].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             break
+                        else:
+                            headingName = currLine[j:].strip().replace("\n","")
+                            if "<" not in currLine:
+                                break
                 if i == 0 and numHashtags > 1:
                     tableOfContents.append("- \n")
                 # Make an Obsidian link ("[[#someHeading]]") with indentation based on heading level
