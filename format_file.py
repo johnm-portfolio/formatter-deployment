@@ -47,9 +47,6 @@ def checkPrevFormat(data):
 
 def replaceSymbols(data, lineNumber):
     toReplace = [
-        ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<-!","←"],
-            ["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
-            ["!!|!", "∤"],["!+-!","±"],["!~!","<span style='font-size:21px'>~</span>"],["!~=!","≈"],["!.!",r"$\cdot$"],
         ["!0!","θ"],
         ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
         ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
@@ -78,6 +75,9 @@ def replaceSymbols(data, lineNumber):
         ["!X!","×"],["!x!","𝑥"],
         ["!y!","𝑦"],
         ["!Z!","ℤ"],["!z!","𝑧"],
+        ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<-!","←"],
+            ["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
+            ["!!|!", "∤"],["!+-!","±"],["!~!","<span style='font-size:21px'>~</span>"],["!~=!","≈"],["!.!",r"$\cdot$"]
     ]
     for replace in toReplace:
             data[lineNumber] = data[lineNumber].replace(replace[0], replace[1])
@@ -116,7 +116,6 @@ def makeToC(data):
                         break
                     elif currLine[j] == " ":
                         if "|" in currLine:
-                            # headingName = currLine[j + 4:-3].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             headingName = currLine[j + 3:-2].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             break
                         else:
