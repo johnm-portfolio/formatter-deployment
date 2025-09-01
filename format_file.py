@@ -49,7 +49,7 @@ def replaceSymbols(data, lineNumber):
     toReplace = [
         ["!0!","θ"],
         ["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
-        ["!b!","𝑏"],["!B!","𝔹"],["!beta!","β"],
+        ["!B!","𝔹"],["!b!","𝑏"],["!beta!","β"],
         ["!c!","𝑐"],["!chi!","χ"],["!complem!","<sup>c</sup>"],["!comp!","<sup>o</sup>"],["!conv!","⊗"],["!cross!","✕"],
         ["!d!","𝑑"],["!deg!","°"],["!delta!","δ"],["!deriv!","⊢"],
         ["!!E!","∉"],["!E!","∈"],["!e!","𝑒"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!eps!","ε"],["!equiv!","⇔"],
@@ -60,13 +60,13 @@ def replaceSymbols(data, lineNumber):
         ["!j!","𝑗"],
         ["!k!","𝑘"],
         ["!l!","𝑙"],["!lambda!","λ"],["!log!",r"$\log$"],
-        ["!m!","𝑚"],
+        ["!m!","𝑚"],["!mu!","μ"],
         ["!N!","ℕ"],['!"N"!',"𝒩"],["!n!","∩"],['!"n"!',"𝑛"],["!NOT!","¬"],
         ["!o!","𝑜"],["!OMEGA!","Ω"],["!omega!","ω"],["!OR!","∨"],
         ["!P!","𝑃"],["!p!","𝑝"],["!phi!","ϕ"],["!pi!","π"],["!power!","𝒫"],["!psub!","⊂"],["!psup!","⊃"],
         ["!Q!","ℚ"],["!q!","𝑞"],
         ["!R!","ℝ"],["!r!","𝑟"],
-        ["!s!","𝑠"],["!sigma!","Σ"],["!so!","∴"],["!some!","∃"],["!sqrt!","√"],
+        ["!s!","𝑠"],["!SIGMA!","Σ"],["!sigma!","σ"],["!so!","∴"],["!some!","∃"],["!sqrt!","√"],
             ["!sub!","⊆"],["!sum!","Σ"],["!sup!","⊇"],
         ["!t!","𝑡"],["!theta!","θ"],["!tick!", "✓"],
         ["!U!","∪"],["!u!","𝑢"],
@@ -77,12 +77,36 @@ def replaceSymbols(data, lineNumber):
         ["!Z!","ℤ"],["!z!","𝑧"],
         ["‘","'"],["’","'"],["“",'"'],["”",'"'],["!^!","∧"],["!->!","→"],["!|->!","↦"],["!<->!","↔"],["!<-!","←"],
             ["!<=!","≤"],["!>=!","≥"],["!!=!","≠"],["!=!","≡"],
-            ["!!|!", "∤"],["!+-!","±"],["!~!","<span style='font-size:21px'>~</span>"],["!~=!","≈"],["!.!",r"$\cdot$"]
+            ["!!|!", "∤"],["!+-!","±"],["!~!","<span style='font-size:21px'>~</span>"],["!~=!","≈"],["!.!",r"$\cdot$"],
+            ["•", "-"]
     ]
     for replace in toReplace:
             data[lineNumber] = data[lineNumber].replace(replace[0], replace[1])
             data[lineNumber] = format_formulae(data[lineNumber])
     return data
+
+def headingWithLink(heading):
+    # Find the links within the heading name
+    linkStart = -1
+    links = []
+    for i in range(len(heading)):
+        if heading[i:i+3] == "[[#":
+            linkStart = i
+        if heading[i:i+2] == "]]" and linkStart != -1:
+            links.append(heading[linkStart:i + 2])
+            linkStart = -1
+    
+    # Parse and produce a link
+    withoutLinks = heading
+    toEnd = ""
+    for link in links:
+        if "|" in link:
+            rename = link.split("|")[1].replace("]]","")
+            withoutLinks = withoutLinks.replace(link, rename)
+            toEnd = "|" + withoutLinks
+        heading = heading.replace(link, (link.replace("[[","").replace("]]","").replace("#","").replace("|"," ")))
+    
+    return heading + toEnd
 
 def makeToC(data):
     # Find indexes of headingIndexes
@@ -107,15 +131,19 @@ def makeToC(data):
             currLine = data[i + offset]
             numHashtags = 0
             if i == headingIndexes[nextHeading]:
-                startHashFound = False
+                # startHashFound = False
                 for j in range(len(currLine)):
                     if currLine[j] == "#":
                         numHashtags += 1
                     elif currLine[j] == "<":
                         headingName = currLine[j:].strip().replace("\n","") + "|" + currLine[currLine.index(">") + 1 : currLine.index("</")]
                         break
-                    elif currLine[j] == " ":
-                        if "|" in currLine:
+                    elif currLine[j] == " ": # reached the space after hashtags (## myTitle)
+                        if "[[#" in currLine:
+                            headingName = headingWithLink(currLine[j:].replace("\n",""))
+                            # headingName = currLine[2:].replace("\n","")
+                            break
+                        elif "|" in currLine:
                             headingName = currLine[j + 3:-2].replace("#", " ").replace("|", " ") + "|" + currLine[currLine.index("|") + 1:-3]
                             break
                         else:
