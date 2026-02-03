@@ -6,6 +6,7 @@
   - [Description](#description)
   - [Purpose](#purpose)
   - [Symbol Table](#symbol-table)
+  - [Example](#example)
 
 ## Installation
 The program works by running a Python file, which will either take command line arguments or prompt for an input. There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
@@ -26,3 +27,10 @@ With regular use, common representations are easily remembered and I designed th
 
 ## Symbol Table
 [Symbol Table](https://symbol-formatter.netlify.app/website/symbol-table)
+
+## Example
+**Before**
+> ![Before](./website/images/example_before.png)
+
+**After**
+> ![After](./website/images/example_after.png)
