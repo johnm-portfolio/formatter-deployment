@@ -55,7 +55,7 @@ def replaceSymbols(data, lineNumber):
         ["!e!","𝑒"],["!empty!","∅"],["!eword!","ε"],["!entail!","⊨"],["!!entail!","⊭"],["!epsilon!","ε"],["!equiv!","⇔"],
         ["!F!","𝐹"],["!f!","𝑓"],["!func!","𝑓"],
         ["!G!","𝐺"],["!g!","𝑔"],["!gamma!","γ"],["!gtick!", '<span style="color:lightgreen">✓</span>'],
-        ["!h!","ℎ"],
+        ["!H!","𝐻"],["!h!","ℎ"],
         ["!I!","𝐼"],["!i!","𝑖"],["!inf!","∞"],["!infinity!","∞"],["!imply!","⇒"],
         ["!j!","𝑗"],
         ["!K!","𝐾"],["!k!","𝑘"],["!kron!","⊗"],
