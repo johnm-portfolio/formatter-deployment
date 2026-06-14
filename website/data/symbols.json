@@ -1,0 +1,791 @@
+{
+  "symbols": [
+    {
+      "output": "𝐴",
+      "inputs": ["!A!"],
+      "description": "Algebraic uppercase A",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑎",
+      "inputs": ["!a!"],
+      "description": "Algebraic lowercase a",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "∀",
+      "inputs": ["!all!"],
+      "description": "Universal quantifier",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "α",
+      "inputs": ["!alpha!"],
+      "description": "Greek lowercase alpha",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "∧",
+      "inputs": ["!^!", "!AND!"],
+      "description": "Logical conjunction",
+      "categories": ["logic-symbols", "mathematical-symbols"]
+    },
+    {
+      "output": "≈",
+      "inputs": ["!approx!", "!~=!"],
+      "description": "Approximately equal to",
+      "categories": ["mathematical-symbols"]
+    },
+
+    {
+      "output": "𝔹",
+      "inputs": ["!B!"],
+      "description": "Set of binary numbers",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑏",
+      "inputs": ["!b!"],
+      "description": "Algebraic lowercase b",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝐵",
+      "inputs": ["!\"B\"!"],
+      "description": "Algebraic uppercase B",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "β",
+      "inputs": ["!beta!"],
+      "description": "Greek lowercase beta",
+      "categories": ["greek-letters"]
+    },
+
+    {
+      "output": "𝑐",
+      "inputs": ["!c!"],
+      "description": "Algebraic lowercase c",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "<sup>c</sup>",
+      "inputs": ["!complem!"],
+      "description": "Set complement",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "<sup>o</sup>",
+      "inputs": ["!comp!"],
+      "description": "Function composition",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "⊗",
+      "inputs": ["!conv!", "!kron!", "!XO!"],
+      "description": "Circle with cross inside",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "✕",
+      "inputs": ["!cross!"],
+      "description": "Cross symbol",
+      "categories": ["mathematical-symbols"]
+    },
+
+    {
+      "output": "𝑑",
+      "inputs": ["!d!"],
+      "description": "Algebraic lowercase d",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "°",
+      "inputs": ["!deg!"],
+      "description": "Degrees symbol",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "∆",
+      "inputs": ["!DELTA!", "!tri!"],
+      "description": "Uppercase delta",
+      "categories": ["greek-letters", "mathematical-symbols"]
+    },
+    {
+      "output": "δ",
+      "inputs": ["!delta!"],
+      "description": "Greek lowercase delta",
+      "categories": ["greek-letters", "mathematical-symbols"]
+    },
+    {
+      "output": "⊢",
+      "inputs": ["!deriv!"],
+      "description": "Derivable / turnstile",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "⋅",
+      "inputs": ["!dot!"],
+      "description": "Dot multiplication",
+      "categories": ["mathematical-symbols"]
+    },
+
+    {
+      "output": "𝑒",
+      "inputs": ["!e!"],
+      "description": "Algebraic lowercase e",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "∅",
+      "inputs": ["!empty!"],
+      "description": "Empty set",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "ε",
+      "inputs": ["!eword!", "!epsilon!"],
+      "description": "Greek lowercase epsilon",
+      "categories": ["greek-letters", "logic-symbols"]
+    },
+    {
+      "output": "⊨",
+      "inputs": ["!entail!"],
+      "description": "Entailment",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "⊭",
+      "inputs": ["!!entail!"],
+      "description": "Does not entail",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "⇔",
+      "inputs": ["!equiv!"],
+      "description": "Logical equivalence",
+      "categories": ["logic-symbols"]
+    },
+
+    {
+      "output": "𝐹",
+      "inputs": ["!F!"],
+      "description": "Algebraic uppercase F",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑓",
+      "inputs": ["!f!", "!func!"],
+      "description": "Function symbol",
+      "categories": ["algebra-symbols", "mathematical-symbols"]
+    },
+
+    {
+      "output": "𝐺",
+      "inputs": ["!G!"],
+      "description": "Algebraic uppercase G",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑔",
+      "inputs": ["!g!"],
+      "description": "Algebraic lowercase g",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "γ",
+      "inputs": ["!gamma!"],
+      "description": "Greek lowercase gamma",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "<span style=\"color:lightgreen\">✓</span>",
+      "inputs": ["!gtick!"],
+      "description": "Green tick",
+      "categories": ["other"]
+    },
+
+    {
+      "output": "𝐻",
+      "inputs": ["!H!"],
+      "description": "Algebraic uppercase H",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "ℎ",
+      "inputs": ["!h!"],
+      "description": "Algebraic lowercase h",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝐼",
+      "inputs": ["!I!"],
+      "description": "Algebraic uppercase I",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑖",
+      "inputs": ["!i!"],
+      "description": "Algebraic lowercase i",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "∞",
+      "inputs": ["!inf!", "!infinity!"],
+      "description": "Infinity",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "⇒",
+      "inputs": ["!imply!"],
+      "description": "Logical implication",
+      "categories": ["logic-symbols"]
+    },
+
+    {
+      "output": "𝑗",
+      "inputs": ["!j!"],
+      "description": "Algebraic lowercase j",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝐾",
+      "inputs": ["!K!"],
+      "description": "Algebraic uppercase K",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑘",
+      "inputs": ["!k!"],
+      "description": "Algebraic lowercase k",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝐿",
+      "inputs": ["!L!"],
+      "description": "Algebraic uppercase L",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑙",
+      "inputs": ["!l!"],
+      "description": "Algebraic lowercase l",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "λ",
+      "inputs": ["!lambda!"],
+      "description": "Greek lowercase lambda",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "$\\log$",
+      "inputs": ["!log!"],
+      "description": "Logarithm symbol",
+      "categories": ["formulae-notation", "mathematical-symbols"]
+    },
+
+    {
+      "output": "𝑀",
+      "inputs": ["!M!"],
+      "description": "Algebraic uppercase M",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑚",
+      "inputs": ["!m!"],
+      "description": "Algebraic lowercase m",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "μ",
+      "inputs": ["!mu!"],
+      "description": "Greek lowercase mu",
+      "categories": ["greek-letters"]
+    },
+
+    {
+      "output": "ℕ",
+      "inputs": ["!N!"],
+      "description": "Set of natural numbers",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑁",
+      "inputs": ["!\"N\"!"],
+      "description": "Algebraic uppercase N",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝒩",
+      "inputs": ["!~N!"],
+      "description": "Curly N",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "∩",
+      "inputs": ["!n!"],
+      "description": "Set intersection",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑛",
+      "inputs": ["!\"n\"!"],
+      "description": "Algebraic lowercase n",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "¬",
+      "inputs": ["!NOT!"],
+      "description": "Logical negation",
+      "categories": ["logic-symbols"]
+    },
+
+    {
+      "output": "𝑜",
+      "inputs": ["!o!"],
+      "description": "Algebraic lowercase o",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "Ω",
+      "inputs": ["!OMEGA!"],
+      "description": "Greek uppercase omega",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "ω",
+      "inputs": ["!omega!"],
+      "description": "Greek lowercase omega",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "∨",
+      "inputs": ["!V!", "!OR!"],
+      "description": "Logical disjunction",
+      "categories": ["logic-symbols"]
+    },
+
+    {
+      "output": "𝑃",
+      "inputs": ["!P!"],
+      "description": "Algebraic uppercase P",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑝",
+      "inputs": ["!p!"],
+      "description": "Algebraic lowercase p",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "∂",
+      "inputs": ["!part!", "!pdiff!"],
+      "description": "Partial differential symbol",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "ϕ",
+      "inputs": ["!phi!"],
+      "description": "Greek lowercase phi",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "$\\Pi$",
+      "inputs": ["!PI!"],
+      "description": "Uppercase pi notation",
+      "categories": ["formulae-notation", "greek-letters"]
+    },
+    {
+      "output": "π",
+      "inputs": ["!pi!"],
+      "description": "Greek lowercase pi",
+      "categories": ["greek-letters", "mathematical-symbols"]
+    },
+    {
+      "output": "𝒫",
+      "inputs": ["!power!"],
+      "description": "Power set",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "⊂",
+      "inputs": ["!psub!"],
+      "description": "Proper subset",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "⊃",
+      "inputs": ["!psup!"],
+      "description": "Proper superset",
+      "categories": ["set-symbols"]
+    },
+
+    {
+      "output": "ℚ",
+      "inputs": ["!Q!"],
+      "description": "Set of rational numbers",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑄",
+      "inputs": ["!\"Q\"!"],
+      "description": "Algebraic uppercase Q",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑞",
+      "inputs": ["!q!"],
+      "description": "Algebraic lowercase q",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "ℝ",
+      "inputs": ["!R!"],
+      "description": "Set of real numbers",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑅",
+      "inputs": ["!\"R\"!"],
+      "description": "Algebraic uppercase R",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "ℛ",
+      "inputs": ["!~R!"],
+      "description": "Curly R",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑟",
+      "inputs": ["!r!"],
+      "description": "Algebraic lowercase r",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "<span style=\"color:red\">✕</span>",
+      "inputs": ["!rcross!"],
+      "description": "Red cross",
+      "categories": ["other"]
+    },
+
+    {
+      "output": "𝑆",
+      "inputs": ["!S!"],
+      "description": "Algebraic uppercase S",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑠",
+      "inputs": ["!s!"],
+      "description": "Algebraic lowercase s",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "Σ",
+      "inputs": ["!SIGMA!", "!sum!"],
+      "description": "Uppercase sigma / summation symbol",
+      "categories": ["greek-letters", "mathematical-symbols"]
+    },
+    {
+      "output": "σ",
+      "inputs": ["!sigma!"],
+      "description": "Greek lowercase sigma",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "∴",
+      "inputs": ["!so!"],
+      "description": "Therefore",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "∃",
+      "inputs": ["!some!"],
+      "description": "Existential quantifier",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "√",
+      "inputs": ["!sqrt!"],
+      "description": "Square root",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "⊆",
+      "inputs": ["!sub!"],
+      "description": "Improper subset",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "⊇",
+      "inputs": ["!sup!"],
+      "description": "Improper superset",
+      "categories": ["set-symbols"]
+    },
+
+    {
+      "output": "𝑇",
+      "inputs": ["!T!"],
+      "description": "Algebraic uppercase T",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑡",
+      "inputs": ["!t!"],
+      "description": "Algebraic lowercase t",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "θ",
+      "inputs": ["!theta!", "!0!"],
+      "description": "Greek lowercase theta",
+      "categories": ["greek-letters"]
+    },
+    {
+      "output": "✓",
+      "inputs": ["!tick!"],
+      "description": "Tick symbol",
+      "categories": ["other"]
+    },
+
+    {
+      "output": "∪",
+      "inputs": ["!U!"],
+      "description": "Set union",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑈",
+      "inputs": ["!\"U\"!"],
+      "description": "Algebraic uppercase U",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑢",
+      "inputs": ["!u!"],
+      "description": "Algebraic lowercase u",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝑣",
+      "inputs": ["!v!"],
+      "description": "Algebraic lowercase v",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑉",
+      "inputs": ["!\"V\"!"],
+      "description": "Algebraic uppercase V",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝑤",
+      "inputs": ["!w!"],
+      "description": "Algebraic lowercase w",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "×",
+      "inputs": ["!X!"],
+      "description": "Multiplication symbol",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "𝑋",
+      "inputs": ["!\"X\"!"],
+      "description": "Algebraic uppercase X",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑥",
+      "inputs": ["!x!"],
+      "description": "Algebraic lowercase x",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "𝑌",
+      "inputs": ["!Y!"],
+      "description": "Algebraic uppercase Y",
+      "categories": ["algebra-symbols"]
+    },
+    {
+      "output": "𝑦",
+      "inputs": ["!y!"],
+      "description": "Algebraic lowercase y",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "ℤ",
+      "inputs": ["!Z!"],
+      "description": "Set of integers",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "𝑧",
+      "inputs": ["!z!"],
+      "description": "Algebraic lowercase z",
+      "categories": ["algebra-symbols"]
+    },
+
+    {
+      "output": "⟦",
+      "inputs": ["![!"],
+      "description": "Left square bracket",
+      "categories": ["other"]
+    },
+    {
+      "output": "⟧",
+      "inputs": ["!]!"],
+      "description": "Right square bracket",
+      "categories": ["other"]
+    },
+
+    {
+      "output": "<span style='font-size:21px'>~</span>",
+      "inputs": ["!~!", "!relate!"],
+      "description": "Large tilde",
+      "categories": ["mathematical-symbols", "logic-symbols"]
+    },
+    {
+      "output": "→",
+      "inputs": ["!->!"],
+      "description": "Right arrow",
+      "categories": ["logic-symbols", "set-symbols", "mathematical-symbols"]
+    },
+    {
+      "output": "↦",
+      "inputs": ["!|->!"],
+      "description": "Mapping arrow",
+      "categories": ["set-symbols", "mathematical-symbols"]
+    },
+    {
+      "output": "∉",
+      "inputs": ["!!E!"],
+      "description": "Does not belong to",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "∈",
+      "inputs": ["!E!"],
+      "description": "Belongs to",
+      "categories": ["set-symbols"]
+    },
+    {
+      "output": "↔",
+      "inputs": ["!<->!"],
+      "description": "Double-sided arrow",
+      "categories": ["logic-symbols"]
+    },
+    {
+      "output": "←",
+      "inputs": ["!<-!"],
+      "description": "Left arrow",
+      "categories": ["logic-symbols"]
+    },
+
+    {
+      "output": "≤",
+      "inputs": ["!<=!"],
+      "description": "Less than or equal to",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "≥",
+      "inputs": ["!>=!"],
+      "description": "Greater than or equal to",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "≠",
+      "inputs": ["!!=!"],
+      "description": "Not equal to",
+      "categories": ["mathematical-symbols"]
+    },
+    {
+      "output": "≡",
+      "inputs": ["!=!"],
+      "description": "Mathematical equivalence",
+      "categories": ["mathematical-symbols"]
+    },
+
+    {
+      "output": "∤",
+      "inputs": ["!!|!"],
+      "description": "Does not divide",
+      "categories": ["logic-symbols", "mathematical-symbols"]
+    },
+    {
+      "output": "±",
+      "inputs": ["!+-!"],
+      "description": "Plus-minus sign",
+      "categories": ["mathematical-symbols"]
+    },
+
+    {
+      "output": "⟂",
+      "inputs": [],
+      "description": "Reserved for future use",
+      "categories": []
+    }
+  ],
+  "formulae": [
+    {
+      "pattern": "!sum\\((.*?)\\)\\((.*?)\\)!",
+      "replacement": "$\\sum_{\\1}^{\\2}$",
+      "description": "Summation notation"
+    },
+    {
+      "pattern": "!sqrt\\((.*?)\\)!",
+      "replacement": "$\\sqrt{\\1}$",
+      "description": "Square root notation",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!\\((.*?)\\)/\\((.*?)\\)!",
+      "replacement": "$\\frac{\\1}{\\2}$",
+      "description": "Fraction notation",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!log\\((.*?)\\)!",
+      "replacement": "$\\log{\\1}$",
+      "description": "Logarithm with argument",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!floor\\((.*?)\\)!",
+      "replacement": "$\\lfloor$\\1$\\rfloor$",
+      "description": "Floor notation",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!rdown\\((.*?)\\)!",
+      "replacement": "$\\lfloor$\\1$\\rfloor$",
+      "description": "Floor notation alias",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!ceil\\((.*?)\\)!",
+      "replacement": "$\\lceil$\\1$\\rceil$",
+      "description": "Ceiling notation",
+      "categories": ["formulae-notation"]
+    },
+    {
+      "pattern": "!rup\\((.*?)\\)!",
+      "replacement": "$\\lceil$\\1$\\rceil$",
+      "description": "Ceiling notation alias",
+      "categories": ["formulae-notation"]
+    }
+  ]
+}

@@ -15,6 +15,11 @@ To make a shortcut that runs it, create a new shortcut with the location set to 
 - 
 Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1` and then edit the Properties of it by right clicking on the created shortcut and setting the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")
 
+```shell
+# From root directory
+python build.py
+```
+
 ## Description
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.
 - It sterilises the provided text, such as replacing symbols that represent quotation marks into actual quotation marks
