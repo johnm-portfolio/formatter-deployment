@@ -47,7 +47,7 @@ def checkPrevFormat(data):
 
 def replaceSymbols(data, lineNumber):
     toReplace = [
-        ["!0!","θ"],
+        ["!0!","θ"],["![!","⟦"],["!]!","⟧"],
         ["!A!","𝐴"],["!a!","𝑎"],["!all!","∀"],["!alpha!","α"],["!AND!","∧"],["!approx!","≈"],
         ["!B!","𝔹"],["!b!","𝑏"],['!"B"!',"𝐵"],["!beta!","β"],
         ["!c!","𝑐"],["!chi!","χ"],["!complem!","<sup>c</sup>"],["!comp!","<sup>o</sup>"],["!conv!","⊗"],["!cross!","✕"],
