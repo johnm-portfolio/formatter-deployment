@@ -124,7 +124,7 @@
       "categories": ["logic-symbols"]
     },
     {
-      "output": "⋅",
+      "output": "$\\cdot$",
       "inputs": ["!dot!"],
       "description": "Dot multiplication",
       "categories": ["mathematical-symbols"]
@@ -364,7 +364,7 @@
     },
     {
       "output": "∨",
-      "inputs": ["!V!", "!OR!"],
+      "inputs": ["!V!", "!v!", "!OR!"],
       "description": "Logical disjunction",
       "categories": ["logic-symbols"]
     },

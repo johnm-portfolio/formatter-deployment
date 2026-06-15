@@ -3,22 +3,44 @@
 - [Symbol Formatter](#symbol-formatter)
   - [Contents](#contents)
   - [Installation](#installation)
+    - [Initial Setup](#initial-setup)
+    - [Shortcut Setup](#shortcut-setup)
+  - [Usage](#usage)
   - [Description](#description)
   - [Purpose](#purpose)
   - [Symbol Table](#symbol-table)
   - [Example](#example)
 
 ## Installation
+### Initial Setup
+Build the project, includes copying symbol JSON data
+```shell
+# From root directory
+python build.py
+```
+
+### Shortcut Setup
 The program works by running a Python file, which will either take command line arguments or prompt for an input. There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
 To make a shortcut that runs it, create a new shortcut with the location set to `powershell.exe -ExecutionPolicy Bypass -File "<yourPath>/runMdToOb.ps1"` where `<yourPath>` is replaced with the absolute path to the parent folder.
 - e.g. `powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/symbol_formatter/runMdToOb.ps1"`
 - 
 Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1` and then edit the Properties of it by right clicking on the created shortcut and setting the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")
 
+## Usage
+==TODO update for package call==
+In the format `python inputFrom.md -o <outTo.md> -s <symbolJSON> [--no-toc]`.
+The extension `--help` can also be used
+
+Install package (from local folder i.e. git pull/clone)
 ```shell
-# From root directory
-python build.py
+python -m pip install .
 ```
+
+```shell
+python .cli.py inputFrom.md -o outputTo.md -s mySymbols.json --no-toc
+#Namespace(input='inputFrom.md', output='outputTo.md', symbols='mySymbols.json', no_toc=True)
+```
+
 
 ## Description
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.
