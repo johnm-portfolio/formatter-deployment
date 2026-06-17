@@ -28,7 +28,7 @@ def load_config():
     if not CONFIG_FILE.exists():
         save_config(DEFAULT_CONFIG)
 
-    with open(CONFIG_FILE, encoding="utf-8") as f:
+    with open(CONFIG_FILE, 'r', encoding="utf-8") as f:
         return json.load(f)
     
 def update_prev_path(new_prev_path):

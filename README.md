@@ -37,9 +37,10 @@ python -m pip install .
 ```
 
 ```shell
-python .cli.py inputFrom.md -o outputTo.md -s mySymbols.json --no-toc
+python .cli.py "inputFrom.md" -o "outputTo.md" -s mySymbols.json --no-toc
 #Namespace(input='inputFrom.md', output='outputTo.md', symbols='mySymbols.json', no_toc=True)
 ```
+- It is good practice to wrap paths in quotation marks (`"`), for example the `&` character causes issues if the path is not in quotes
 
 
 ## Description

@@ -1,10 +1,10 @@
 from pathlib import Path
 import sys
-# from .formatter import process_content
 import argparse
+from formatter import format_text
+from config import load_config
 
 def main():
-    print("GENIUS")
     parser = argparse.ArgumentParser(
         prog="note-formatter",
         description="Format markdown notes, intended for Obsidian"
@@ -32,18 +32,33 @@ def main():
     args = parser.parse_args()
 
     if args.input is None:
-        input_path = input("Enter input file path: ").strip('"')
+        inpt_path_str = input("Enter input file path: ").strip('"').replace("\\","/")
+        if inpt_path_str == "":
+            inpt_path = load_prev_path()
+        else:
+            inpt_path = Path(inpt_path_str)
+        #... and for output path
     else:
-        input_path = args.input
+        inpt_path = Path(args.input.replace("\\","/"))
 
     if args.output is None:
-        output_path = load_prev_path()
+        out_path = inpt_path
     else:
-        output_path = args.output
+        out_path = Path(args.output.replace("\\","/"))
 
-    print(args)
+    print(inpt_path + " --> " + out_path)
+
+    inpt_file_content = read_file(inpt_path)
+    formatted_text = format_text(inpt_file_content)
+
+    with open(out_path, 'w', encoding="utf-8") as f:
+        f.write(formatted_text)
 
 def load_prev_path():
-    return
+    return load_config()["previous_path"]
+
+def read_file(path: Path) -> str:
+    with open(path, 'r', encoding="utf-8") as f:
+        return f.read()
 
 main()
