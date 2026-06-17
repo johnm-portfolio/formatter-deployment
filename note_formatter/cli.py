@@ -1,8 +1,8 @@
 from pathlib import Path
 import sys
 import argparse
-from formatter import format_text
-from config import load_config, update_prev_path
+from note_formatter.formatter import format_text
+from note_formatter.config import load_config, update_prev_path
 
 def main():
     parser = argparse.ArgumentParser(
@@ -36,7 +36,6 @@ def main():
         inpt_path_str = input("Enter input file path: ").strip('"').replace("\\","/")
         if inpt_path_str == "":
             inpt_path = load_prev_path()
-            print(inpt_path, type(inpt_path))
         else:
             inpt_path = Path(inpt_path_str)
         #... and for output path

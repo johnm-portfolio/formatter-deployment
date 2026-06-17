@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import re
 
-SYMBOLS_PATH = Path(__file__).resolve().parents[1] / "note_formatter/data/symbols.json"
+SYMBOLS_PATH = Path(__file__).resolve().parents[1] / "shared/symbols.json"
 
 # Assume JSON format should have two non-empty lists, "symbols" and "formulae"
 def test_symbols_json_loads():

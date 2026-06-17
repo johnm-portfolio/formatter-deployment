@@ -1,7 +1,7 @@
 from pathlib import Path
 import re
-from symbols import load_symbol_config
-import toc
+from note_formatter.symbols import load_symbol_config
+from note_formatter import toc
 
 # print(len(load_symbol_config()["symbols"]))
 

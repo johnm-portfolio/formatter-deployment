@@ -12,3 +12,7 @@ dependencies = []
 
 [project.scripts]
 symbol-formatter = "note_formatter.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
