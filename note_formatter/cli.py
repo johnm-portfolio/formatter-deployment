@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 import argparse
 from formatter import format_text
-from config import load_config
+from config import load_config, update_prev_path
 
 def main():
     parser = argparse.ArgumentParser(
@@ -31,31 +31,35 @@ def main():
     )
     args = parser.parse_args()
 
+    inpt_path: Path | None = None
     if args.input is None:
         inpt_path_str = input("Enter input file path: ").strip('"').replace("\\","/")
         if inpt_path_str == "":
             inpt_path = load_prev_path()
+            print(inpt_path, type(inpt_path))
         else:
             inpt_path = Path(inpt_path_str)
         #... and for output path
     else:
         inpt_path = Path(args.input.replace("\\","/"))
 
+    out_path = ""
     if args.output is None:
         out_path = inpt_path
     else:
         out_path = Path(args.output.replace("\\","/"))
 
-    print(inpt_path + " --> " + out_path)
-
     inpt_file_content = read_file(inpt_path)
-    formatted_text = format_text(inpt_file_content)
+    formatted_text = format_text(inpt_file_content, not args.no_toc)
 
     with open(out_path, 'w', encoding="utf-8") as f:
         f.write(formatted_text)
 
-def load_prev_path():
-    return load_config()["previous_path"]
+    update_prev_path(inpt_path)
+
+def load_prev_path() -> Path:
+    prev_path_str = load_config()["previous_path"]
+    return Path(prev_path_str.replace("\\","/"))
 
 def read_file(path: Path) -> str:
     with open(path, 'r', encoding="utf-8") as f:

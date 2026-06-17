@@ -34,8 +34,6 @@ def load_config():
 def update_prev_path(new_prev_path):
     config = load_config()
 
-    config["previous_path"] = str(
-        Path(new_prev_path.replace("\"","")).resolve()
-    )
+    config["previous_path"] = str(Path(new_prev_path).resolve()).replace("\"","")
 
     save_config(config)
