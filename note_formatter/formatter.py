@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 from symbols import load_symbol_config
 import toc
 
@@ -9,10 +10,19 @@ def format_text(text: str) -> str:
     text = toc.remove_toc(text)
     # Add new TOC
     text = toc.add_toc(text)
-    return text
 
-def make_link(link: str, display: str) -> str:
-    return f"[[{link}|{display}]]"
+    # Replace symbols
+    symbols = load_symbol_config()
+    for symbol in symbols["symbols"]:
+        for alias in symbol["inputs"]:
+            text = text.replace(alias, symbol["output"])
+
+    # Replace formulae
+    for formulae in symbols["formulae"]:
+        print(repr(formulae["replacement"]))
+        text = re.sub(formulae["pattern"], formulae["replacement"], text)
+
+    return text
 
 TEST_PATH = Path(r"C:\Users\johnk\Documents\D&D\Obsidian\PIRATE CAMPAIGN\TEST.md")
 with open(TEST_PATH, 'r', encoding="utf-8") as f:

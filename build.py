@@ -3,13 +3,10 @@ import json
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "shared/symbols.json"
-MOD_DST = ROOT / "note_formatter/data/symbols.json"
 WEB_DST = ROOT / "website/data/symbols.json"
 
 def build():
     data = json.loads(SRC.read_text(encoding="utf-8"))
-    MOD_DST.parent.mkdir(parents=True, exist_ok=True)
-    MOD_DST.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
     WEB_DST.parent.mkdir(parents=True, exist_ok=True)
     WEB_DST.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
