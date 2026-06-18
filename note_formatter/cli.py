@@ -68,8 +68,6 @@ def main():
         else:
             out_path = Path(args.output.replace("\\","/"))
     
-    print(inpt_path, out_path)
-
     inpt_file_content = read_file(inpt_path)
     formatted_text = format_text(inpt_file_content, not args.no_toc)
 
