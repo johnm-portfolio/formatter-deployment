@@ -1,3 +1,4 @@
+# Table of Contents
 - [[#Heading 1A]]
    - [[#Heading 2]]
 - [[#Heading 1B]]
@@ -13,3 +14,8 @@ Maybe even fantastic $\sqrt{20}$
 
 # Heading 1B
 But this is better $\frac{1}{2}$
+```
+# This is not a heading
+```
+
+How many # of headings I wonder
