@@ -55,13 +55,14 @@ def main():
                 out_path = inpt_path
             else:
                 out_path = Path(out_path_str)
+                print(out_path)
         #TODO Get the user to enter the symbols path
     else:
         inpt_path = Path(args.input.replace("\\","/"))
 
     if args.inline:
         out_path = inpt_path
-    else:
+    elif args.input is not None:
         if args.output is None:
             out_path = inpt_path
         else:
