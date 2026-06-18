@@ -29,24 +29,45 @@ def main():
         action="store_true",
         help="Disable automatic table of contents generation"
     )
+    parser.add_argument(
+        "--inline",
+        action="store_true",
+        help="Format the file inline (use the same input and output path)"
+    )
     args = parser.parse_args()
 
     inpt_path: Path | None = None
+    out_path: Path | None = None
+
     if args.input is None:
-        inpt_path_str = input("Enter input file path: ").strip('"').replace("\\","/")
+        # Get user to enter the input path
+        inpt_path_str = input("Enter input file path (press Enter to use previous path): ").strip('"').replace("\\","/")
         if inpt_path_str == "":
             inpt_path = load_prev_path()
         else:
             inpt_path = Path(inpt_path_str)
-        #... and for output path
+        # Get the user to enter the output path
+        if args.inline:
+            out_path = inpt_path
+        else:
+            out_path_str = input("Enter output file path (press Enter to use the input path): ").strip('"').replace("\\","/")
+            if out_path_str == "":
+                out_path = inpt_path
+            else:
+                out_path = Path(out_path_str)
+        #TODO Get the user to enter the symbols path
     else:
         inpt_path = Path(args.input.replace("\\","/"))
 
-    out_path = ""
-    if args.output is None:
+    if args.inline:
         out_path = inpt_path
     else:
-        out_path = Path(args.output.replace("\\","/"))
+        if args.output is None:
+            out_path = inpt_path
+        else:
+            out_path = Path(args.output.replace("\\","/"))
+    
+    print(inpt_path, out_path)
 
     inpt_file_content = read_file(inpt_path)
     formatted_text = format_text(inpt_file_content, not args.no_toc)
