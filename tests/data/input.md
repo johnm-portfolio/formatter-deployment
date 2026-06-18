@@ -7,3 +7,8 @@ Maybe even fantastic !sqrt(20)!
 
 # Heading 1B
 But this is better !(1)/(2)!
+```
+# This is not a heading
+```
+
+How many # of headings I wonder

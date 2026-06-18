@@ -27,14 +27,15 @@ def extract_headings(text: str) -> list:
 def add_toc(text: str) -> str:
     # Get headings
     headings = extract_headings(text)
-    heading_text = ""
-    # Add each heading, including indentation level
-    for heading in headings:
-        heading_lvl = heading[1]
-        heading_text += ("   " * (heading_lvl - 1)) + f"- [[#{heading[0]}]]\n"
-    # Insert new TOC before main file contents
-    heading_text += HEADING_SEPARATOR
-    text = heading_text + text
+    if len(headings) > 0:
+        heading_text = "# Table of Contents\n"
+        # Add each heading, including indentation level
+        for heading in headings:
+            heading_lvl = heading[1]
+            heading_text += ("   " * (heading_lvl - 1)) + f"- [[#{heading[0]}]]\n"
+        # Insert new TOC before main file contents
+        heading_text += HEADING_SEPARATOR
+        text = heading_text + text
 
     return text
 

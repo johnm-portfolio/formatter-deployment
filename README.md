@@ -42,6 +42,7 @@ python -m note_formatter cli "inputFrom.md" -o "outputTo.md" -s mySymbols.json -
 ```
 - It is good practice to wrap paths in quotation marks (`"`), for example the `&` character causes issues if the path is not in quotes
 
+The shell script `/start_cli.ps1` runs `note_formatter.cli` with no args, you can create a shortcut to run this script and add it to your hotbar
 
 ## Description
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.
