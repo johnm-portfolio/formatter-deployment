@@ -76,7 +76,7 @@ With regular use, common representations are easily remembered and I designed th
 
 ## Example
 **Before**
-> ![Before](./website/images/example_before.png)
+> ![Before](./website/Images/example_before.png)
 
 **After**
-> ![After](./website/images/example_after.png)
+> ![After](./website/Images/example_after.png)
