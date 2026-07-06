@@ -1,9 +1,41 @@
-prevPath.txt
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Wheels
+*.whl
+
+# Test/coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.coverage_html/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Other
 dev_notes.txt
 config_lnk.lnk
-VSCode.code-workspace
+
+# Old files
 format_file.lnk
-format_note.lnk
-.vscode
-build/
-note_formatter.egg-info
+/note_formatter/prevPath.txt
