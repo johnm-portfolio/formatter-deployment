@@ -1,30 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="author" content="John McNally">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload File</title>
+    <title>Format Online - Symbol Formatter</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand"><a href="../index.html">Symbol Formatter</a></div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="symbol-table.html" class="nav-link">Symbol Table</a></li>
+                <li><a href="online-formatter.html" class="nav-link active">Format Online</a></li>
+            </ul>
+            <button id="theme-button" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
 
-<body class="dark-theme-main">
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="symbol-table.html">Symbol table</a></li>
-      <li>Format online</li>
-      <ul><li><i>(The download will not work on Netlify)</i></li></ul>
-    </ul>
-  </nav>
-  <hr>
+    <main class="container">
+        <section class="section">
+            <div class="section-header">
+                <h1 class="section-title">Format Your Notes Online</h1>
+                <p class="section-subtitle">Upload a markdown or text file to format it with the Symbol Formatter</p>
+            </div>
 
-  <i>Note that this download will not work on Netlify</i>
-  <form action="../process.php" method="post" enctype="multipart/form-data">
-    <label for="upload">Upload a .txt or .md file:</label>
-    <input type="file" name="upload" id="upload" accept=".txt,.md" required>
-    <p>
-    <button type="submit">Upload</button></p>
-  </form>
+            <div class="info-banner warning">
+                <span class="banner-icon">⚠️</span>
+                <div>
+                    <strong>Currently Unavailable on Netlify:</strong> Server-side file processing requires a backend API. For now, use the command-line tool with the provided installation instructions.
+                </div>
+            </div>
+
+            <div class="next-steps">
+              <h2>Next Steps</h2>
+              <div class="steps-grid">
+                <a href="../index.html" class="step-card">
+                  <h3>Return Home</h3>
+                  <p>Go back to the main page</p>
+                </a>
+                <a href="symbol-table.html" class="step-card">
+                  <h3>View All Symbols</h3>
+                  <p>Browse the complete symbol reference table</p>
+                </a>
+              </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Symbol Formatter. Open source on <a href="https://github.com/john-mcn/symbol_formatter">GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

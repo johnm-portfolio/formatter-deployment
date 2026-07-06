@@ -1,67 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="author" content="John McNally">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Symbol Table</title>
+    <title>Symbol Table - Symbol Formatter</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-
-  <body class="dark-theme-main">
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li>Symbol table</li>
-        <li><a href="online-formatter.html">Format online</a></li>
-        <ul><li><i>(The download will not work on Netlify)</i></li></ul>
-      </ul>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand"><a href="../index.html">Symbol Formatter</a></div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="symbol-table.html" class="nav-link active">Symbol Table</a></li>
+                <li><a href="online-formatter.html" class="nav-link">Format Online</a></li>
+            </ul>
+            <button id="theme-button" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
     </nav>
-    <hr>
 
-    <h1>Symbol Table</h1>
-    <button id="theme-button" class="dark-theme-button">
-      <img src="images/dark_theme_button_icon.png" height="50rem">
-    </button>
+    <main class="container">
+        <section class="section">
+            <div class="section-header">
+                <h1 class="section-title">Symbol Table</h1>
+                <p class="section-subtitle">Complete reference of all available symbol representations. Click any symbol to copy it.</p>
+            </div>
 
-    <br>
+            <div class="help-section">
+                <h3>How to Use</h3>
+                <p>Find the symbol you need in the table above. Type its representation into your notes during lectures. After you're done, run the formatter to convert all representations into proper symbols.</p>
+                <p>Click any symbol in the table to copy it directly to your clipboard.</p>
+            </div>
 
-    <label for="filter">Filter by category:</label>
-    <select id="filter">
-      <option value="all">All</option>
-      <option value="algebra-symbols">Algebra Symbols</option>
-      <option value="greek-letters">Greek Letters</option>
-      <option value="set-symbols">Set Symbols</option>
-      <option value="formulae-notation">LaTeX Notation</option>
-      <option value="logic-symbols">Logic Symbols</option>
-      <option value="mathematical-symbols">Mathematical Symbols</option>
-      <option value="other">Other</option>
-    </select>
+            <div class="controls-bar">
+                <div class="control-group">
+                    <label for="filter">Filter by category:</label>
+                    <select id="filter">
+                        <option value="all">All Symbols</option>
+                        <option value="algebra-symbols">Algebra Symbols</option>
+                        <option value="greek-letters">Greek Letters</option>
+                        <option value="set-symbols">Set Symbols</option>
+                        <option value="formulae-notation">LaTeX Notation</option>
+                        <option value="logic-symbols">Logic Symbols</option>
+                        <option value="mathematical-symbols">Mathematical Symbols</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
 
-    <table id="symbol-table">
-      <thead id="symbol-table-head" class="dark-theme-table-heading">
-        <tr>
-          <th>Symbol</th>
-          <th>Representation</th>
-          <th>Description</th>
-        </tr>
-      </thead>
+            <!-- Symbol Table -->
+            <div class="table-wrapper">
+                <table id="symbol-table" class="data-table">
+                    <thead id="symbol-table-head">
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Representation</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="symbol-table-body">
+                    </tbody>
+                </table>
+            </div>
 
-      <tbody id="symbol-table-body" class="dark-theme-table-body">
-    </table>
+            <!-- Formula Table -->
+            <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Replacement Rules</h2>
+            <div class="table-wrapper">
+                <table id="formula-table" class="data-table">
+                    <thead id="formula-table-head">
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Replacement</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="formula-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 
-    <table id="formula-table">
-      <thead id="formula-table-head" class="dark-theme-table-heading">
-        <tr>
-          <th>Pattern</th>
-          <th>Replacement</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-
-      <tbody id="formula-table-body" class="dark-theme-table-body">
-    </table>
+    <footer class="footer">
+        <p>&copy; 2026 Symbol Formatter. Open source on <a href="https://github.com/john-mcn/symbol_formatter">GitHub</a></p>
+    </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
