@@ -3,7 +3,6 @@
 - [Symbol Formatter](#symbol-formatter)
   - [Contents](#contents)
   - [Installation](#installation)
-    - [Initial Setup](#initial-setup)
     - [Shortcut Setup](#shortcut-setup)
   - [Usage](#usage)
   - [Description](#description)
@@ -12,37 +11,58 @@
   - [Example](#example)
 
 ## Installation
-### Initial Setup
-Build the project, includes copying symbol JSON data
+Install package directly from github
 ```shell
-# From root directory
-python build.py
+pip install pip@git+https://github.com/john-mcn/symbol_formatter
+```
+
+OR
+
+Clone repo then install package locally (from local folder i.e. git pull/clone)
+```shell
+# Clone the repo
+git clone https://github.com/johnm-portfolio/formatter-deployment.git note_formatter
+# Install the project
+cd .\note_formatter\
+pip install .
 ```
 
 ### Shortcut Setup
-The program works by running a Python file, which will either take command line arguments or prompt for an input. There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
-To make a shortcut that runs it, create a new shortcut with the location set to `powershell.exe -ExecutionPolicy Bypass -File "<yourPath>/runMdToOb.ps1"` where `<yourPath>` is replaced with the absolute path to the parent folder.
-- e.g. `powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/symbol_formatter/runMdToOb.ps1"`
-- 
-Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1` and then edit the Properties of it by right clicking on the created shortcut and setting the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")
+To make a windows shortcut that runs the package CLI with no args, create a new shortcut with the location set to `powershell.exe -ExecutionPolicy Bypass -File "<absPath>/start_cli.ps1"` where `<absPath>` is replaced with the absolute path to the parent folder.
+- e.g. `powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/note_formatter/start_clin.ps1"`
+
+You can also create your own shell script and make a shortcut point to it, this way you can define custom sets of arguments
+```ps1
+Set-Location $PSScriptRoot
+note-formatter --inplace
+```
+
+Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File start_cli.ps1` and then edit the "Properties" of it to set the "Start In" to the absolute folder path (either project root or a folder wherein you created your own `.ps1`)
 
 ## Usage
-==TODO update for package call==
-In the format `python inputFrom.md -o <outTo.md> -s <symbolJSON> [--no-toc]`.
-The extension `--help` can also be used
-
-Install package (from local folder i.e. git pull/clone)
+With the package installed, simply run
 ```shell
-python -m pip install .
+note-formatter
+```
+If the package is not installed but the project repo is cloned
+```shell
+# From project root (not package root)
+python -m note_formatter.cli
 ```
 
+Arguments are detailed in `note-formatter --help`, but the quickest format is:
 ```shell
-python -m note_formatter cli "inputFrom.md" -o "outputTo.md" -s mySymbols.json --no-toc
-#Namespace(input='inputFrom.md', output='outputTo.md', symbols='mySymbols.json', no_toc=True)
+# Format the given file and output to it as well
+note-formatter "inputFrom.md" --inplace
 ```
-- It is good practice to wrap paths in quotation marks (`"`), for example the `&` character causes issues if the path is not in quotes
+- It is good practice to wrap path arguments in quotation marks (`"`) because, for example, the `&` character causes issues if the path is not in quotes
 
 The shell script `/start_cli.ps1` runs `note_formatter.cli` with no args, you can create a shortcut to run this script and add it to your hotbar
+
+To uninstall
+```shell
+pip uninstall note-formatter
+```
 
 ## Description
 This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or processed format.

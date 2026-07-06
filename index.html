@@ -1,70 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="author" content="John McNally">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Symbol Formatter</title>
     <link rel="stylesheet" href="website/style.css">
-  </head>
-
-  <body class="dark-theme-main">
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li><a href="website/symbol-table.html">Symbol table</a></li>
-        <li><a href="website/online-formatter.html">Format online</a></li>
-        <ul><li><i>(The download will not work on Netlify)</i></li></ul>
-      </ul>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Symbol Formatter</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="website/symbol-table.html" class="nav-link">Symbol Table</a></li>
+                <li><a href="website/online-formatter.html" class="nav-link">Format Online</a></li>
+            </ul>
+            <button id="theme-button" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
     </nav>
-    <hr>
 
-    <main>
-      <h1>Symbol Formatter</h1>
-      <h2>Contents</h2>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#description">Description</a></li>
-        <li><a href="#purpose">Purpose</a></li>
-        <li><a href="#example">Example</a></li>
-      </ul>
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Symbol Formatter</h1>
+                <p class="hero-subtitle">Convert shorthand representations into proper symbols for your CS and Mathematics notes</p>
+                <div class="hero-buttons">
+                    <a href="website/symbol-table.html" class="btn btn-primary">View Symbols</a>
+                    <a href="website/online-formatter.html" class="btn btn-secondary">Format Online</a>
+                </div>
+            </div>
+            <div class="accent-line"></div>
+        </section>
 
-      <h2 id="installation">Installation</h2>
-      <p>The program works by running a Python file, which will either take command line arguments or prompt for an input.
-        There is a powershell shortcut "/runMdToOb.ps1" that will run the python file from any directory.
-      </p>
-      <p>To make a shortcut that runs it, create a new shortcut with the location set to 
-          <code>powershell.exe -ExecutionPolicy Bypass -File "&lt;yourPath&gt;/runMdToOb.ps1"</code>
-          (where <code>&lt;yourPath&gt;</code> is replaced with the absolute path to the parent folder).
-      </p>
-      <ul>
-        <li>e.g. <code>powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/symbol_formatter/runMdToOb.ps1"</code></li>
-      </ul>
-      <p>Alternatively, set the location as <code>powershell.exe -ExecutionPolicy Bypass -File runMdToOb.ps1</code> 
-        and then edit the Properties of it, by right clicking on the created shortcut, and set the "Start In" to the absolute path (e.g. "C:/Users/john/Documents/symbol_formatter")</p>
+        <!-- Features Section -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Fast Conversion</h3>
+                    <p>Type shorthand representations and instantly get proper mathematical and computer science symbols</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Table of Contents</h3>
+                    <p>Automatically structures your notes with a customized table of contents</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Smart Formatting</h3>
+                    <p>Sterilizes text and converts quotation marks and special characters</p>
+                </div>
+            </div>
+        </section>
 
-      <h2 id="description">Description</h2>
-      <p>This program uses python to convert a custom format for representing commonly used symbols in Computer Science and Mathematics into the relevant text symbols or other processed format.
-        <ul>
-          <li>It sterilises the provided text, such as replacing symbols that represent quotation marks into actual quotation marks</li>
-          <li>It also structures notes to include a customised table of contents at the top</li>
-        </ul>
-      </p>
-      <p><a href="website/symbol-table.html">This page</a> contains a filterable list of all the symbols</p>
+        <!-- Installation Section -->
+        <section class="section" id="installation">
+            <h2 class="section-title">Installation</h2>
+            <p>Get started in seconds. Install the package directly from GitHub:</p>
+            
+            <div class="code-block">
+                <code>pip install git+https://github.com/john-mcn/symbol_formatter</code>
+            </div>
 
-      <h2 id="purpose">Purpose</h2>
-      <p>This program was designed to allow me to take notes in univeristy lectures much more efficiently, not having to worry about finding specific symbols, then copying and pasting them whenever needed. 
-        Creating this allowed my notes to be much more streamlined and I could quickly write out a representation for a symbol during a lecture - allowing me to pay better attention -
-          , and afterwards, run a simple shortcut to execute the python script on a desired file path to format it as intended.
-      <p>With regular use, common representations are easily remembered and I designed them to be as intuitive as possible, some 'symbols' having multiple different representations for ease of use. 
-        However, if any are forgotten having a table proves useful, I had one in my Obsidian vault (where I took notes) for quick reference.
-      </p>
+            <p style="margin-top: 1.5rem;">Or clone and install locally:</p>
+            <div class="code-block">
+                <code>git clone https://github.com/johnm-portfolio/formatter-deployment.git note_formatter
+                  <br>cd note_formatter
+                  <br>pip install .
+                </code>
+            </div>
 
-      <h2 id="example">Example</h2>
-      <p><strong>Before</strong></p>
-      <img src="website/images/example_before.png" class="simple-img">
-      <p><strong>After</strong></p>
-      <img src="website/images/example_after.png" class="simple-img">
+            <div style="margin-top: 2rem">
+                <h3>Using the Package</h3>
+                <div class="command-item">
+                  <strong>Interactive mode:</strong>
+                  <div class="code-block">
+                      <code>note-formatter</code>
+                  </div>
+                </div>
+
+                <div class="quick-commands">
+                  <div class="command-item">
+                    <strong>Format and save in place:</strong>
+                    <div class="code-block">
+                        <code>note-formatter "file.md" --inplace</code>
+                    </div>
+                  </div>
+                  
+                  <div class="command-item">
+                    <strong>Format with custom output:</strong>
+                    <div class="code-block">
+                        <code>note-formatter "input.md" -o "output.md"</code>
+                    </div>
+                  </div>
+
+                  <div class="command-item">
+                    <strong>Get help:</strong>
+                    <div class="code-block">
+                        <code>note-formatter --help</code>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem">
+                <h3>Windows Shortcut</h3>
+                <p>For even faster access on Windows, create a shortcut that launches the formatter:</p>
+
+                <p>The <a href="https://github.com/john-mcn/symbol_formatter">GitHub repo</a> has a <code>run_cli.lnk</code> shortcut already</p>
+                
+                <ol style="margin: 1rem 0; padding-left: 1.5rem;">
+                    <li style="margin: 0.5rem 0;">Right-click on your desktop → <strong>New</strong> → <strong>Shortcut</strong></li>
+                    <li style="margin: 0.5rem 0;">Enter the location:
+                        <div class="code-block" style="margin-top: 0.5rem;">
+                            <code>powershell.exe -Command "note-formatter --inplace"</code>
+                        </div>
+                    </li>
+                    <li style="margin: 0.5rem 0;">Or replace the <code>note-formatter --inplace</code> with a different CLI call</li>
+                </ol>
+
+                <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.8;">Now you can quickly format files by clicking the shortcut, and can pin it to your taskbar for efficiency.</p>
+            </div>
+        </section>
+
+        <!-- Description Section -->
+        <section class="section">
+            <h2 class="section-title">How It Works</h2>
+            <p>This tool converts custom symbol representations into proper text symbols and processed formats. It's designed for efficient note-taking during lectures where finding and copying symbols would be distracting.</p>
+            
+            <div class="features-list">
+                <div class="list-item">
+                    <span class="list-icon">✓</span>
+                    <div>
+                        <strong>Character Sterilization:</strong> Replaces custom quotation marks and special characters with proper Unicode equivalents
+                    </div>
+                </div>
+                <div class="list-item">
+                    <span class="list-icon">✓</span>
+                    <div>
+                        <strong>Auto TOC Generation:</strong> Structures your notes with automatically generated table of contents
+                    </div>
+                </div>
+                <div class="list-item">
+                    <span class="list-icon">✓</span>
+                    <div>
+                        <strong>Intuitive Mappings:</strong> Common representations are easy to remember with multiple aliases for convenience
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purpose Section -->
+        <section class="section">
+            <h2 class="section-title">Why Build This?</h2>
+            <p>Taking notes in university lectures requires focus and direct attention. This tool eliminates the hassle of finding and copying symbols, letting you type intuitive shorthand representations during lectures and format them afterwards.</p>
+            <p>This tool can, of course, be used for general note taking as it provides an automatic Table of Contents generation and unicode cleanup.</p>
+            <p style="margin-top: 1rem;">With regular use, common representations become second nature. But if you forget, the <a href="website/symbol-table.html" class="inline-link">interactive symbol table</a> is always available for quick reference.</p>
+        </section>
+
+        <!-- Example Section -->
+        <section class="section">
+            <h2 class="section-title">Before & After</h2>
+            <div class="example-grid">
+                <div class="example-item">
+                    <h4>Before</h4>
+                    <img src="website/images/example_before.png" alt="Example before formatting" class="example-image">
+                </div>
+                <div class="example-item">
+                    <h4>After</h4>
+                    <img src="website/images/example_after.png" alt="Example after formatting" class="example-image">
+                </div>
+            </div>
+        </section>
+
+        <section>
+          <div class="next-steps">
+            <h2>Next Steps</h2>
+            <div class="steps-grid">
+              <a href="symbol-table.html" class="step-card">
+                <h3>View All Symbols</h3>
+                <p>Browse the complete symbol reference table</p>
+              </a>
+              <a href="website/online-formatter.html" class="step-card">
+                <h3>Format Online</h3>
+                <p>Format your files online</p>
+              </a>
+              <a href="https://github.com/john-mcn/symbol_formatter" class="step-card" target="_blank">
+                <h3>View on GitHub</h3>
+                <p>Check out the source code</p>
+              </a>
+            </div>
+          </div>
+        </section>
     </main>
-  </body>
+
+    <footer class="footer">
+        <p>&copy; 2026 Symbol Formatter. Open source on <a href="https://github.com/john-mcn/symbol_formatter">GitHub</a></p>
+    </footer>
+
+    <script src="website/script.js"></script>
+</body>
 </html>

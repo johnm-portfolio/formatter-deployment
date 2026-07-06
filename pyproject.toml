@@ -6,13 +6,27 @@ build-backend = "setuptools.build_meta"
 name = "note-formatter"
 version = "0.1.0"
 description = "Formats custom markdown symbols and generates a table of contents"
+authors = [{name = "John McNally"}]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov"]
+
+[project.urls]
+Repository = "https://github.com/johnm-portfolio/formatter-deployment"
+
 [project.scripts]
-symbol-formatter = "note_formatter.cli:main"
+note-formatter = "note_formatter.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools.package-data]
+note_formatter = ["data/symbols.json"]
+
+[tool.setuptools.packages.find]
+include = ["note_formatter*"]
+exclude = ["tests*", "website*", "shared*"]
