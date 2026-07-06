@@ -20,7 +20,7 @@ def extract_headings(text: str) -> list:
             if valid_heading:
                 heading_split = line.split(" ", 1)
                 heading_lvl = len(heading_split[0])
-                display_txt = heading_split[1]
+                display_txt = heading_split[1].strip()
                 headings.append([display_txt, heading_lvl])
     return headings
 

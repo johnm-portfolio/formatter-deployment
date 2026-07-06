@@ -200,10 +200,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData();
       formData.append("file", file);
 
+      // TODO change
       try {
-          const response = await fetch("/format", {
+          const response = await fetch("/api/format", {
               method: "POST",
-              body: formData
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ text })
           });
 
           if (!response.ok) {
