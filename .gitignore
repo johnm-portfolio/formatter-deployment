@@ -6,3 +6,4 @@ format_file.lnk
 format_note.lnk
 .vscode
 build/
+note_formatter.egg-info

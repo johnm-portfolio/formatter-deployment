@@ -1,2 +1,0 @@
-[console_scripts]
-note-formatter = note_formatter.cli:main
