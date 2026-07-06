@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         a.remove();
         window.URL.revokeObjectURL(url);
 
-        statusText.textContent = "✅ Download ready!";
+        statusText.textContent = "✓ Download ready!";
         statusText.style.color = "var(--accent-primary)";
         
         // Reset after 3 seconds
