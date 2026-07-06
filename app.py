@@ -1,35 +1,64 @@
-from flask import Flask, request, send_file
-from note_formatter import format_file
-import tempfile
 import os
+from flask import Flask, request, send_file, jsonify, render_template
+from werkzeug.utils import secure_filename
+from io import BytesIO
+import tempfile
 
-app = Flask(__name__, static_folder="website", static_url_path="")
+from note_formatter.formatter import format_text
 
-# Serve frontend
+app = Flask(
+    __name__,
+    static_folder="website",
+    static_url_path="/"
+)
+
+# Optional upload limit (10MB)
+app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
+
 @app.route("/")
 def index():
     return app.send_static_file("index.html")
 
-@app.route("/<path:path>")
-def static_files(path):
+
+@app.route("/website/<path:path>")
+def website_files(path):
     return app.send_static_file(path)
 
+@app.route("/format", methods=["POST"])
+def format_file():
+    if "file" not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
 
-# API endpoint
-@app.post("/format")
-def format_note():
     file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"error": "Empty filename"}), 400
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".md") as f:
-        input_path = f.name
-        file.save(input_path)
+    filename = secure_filename(file.filename)
 
-    output_path = input_path + "_out.md"
+    try:
+        raw_text = file.read().decode("utf-8")
+    except Exception:
+        return jsonify({"error": "File must be UTF-8 encoded text"}), 400
 
-    format_file(input_path, output_path)
+    # Run your formatter
+    formatted_text = format_text(raw_text, generate_toc=True)
 
-    return send_file(output_path, as_attachment=True)
+    # Write to temporary file for download
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
+    tmp.write(formatted_text.encode("utf-8"))
+    tmp.close()
 
+    return send_file(
+        tmp.name,
+        as_attachment=True,
+        download_name="formatted.md",
+        mimetype="text/markdown"
+    )
+
+@app.route("/health")
+def health():
+    return {"status": "ok"}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

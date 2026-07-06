@@ -2,10 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const themeButton = document.getElementById("theme-button");
-
-  const fileInput = document.getElementById("fileInput");
-  const uploadBtn = document.getElementById("uploadBtn");
-  const statusText = document.getElementById("statusText");
   
   // Initialize theme from localStorage
   initializeTheme();
