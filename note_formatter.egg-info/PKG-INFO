@@ -1,3 +1,17 @@
+Metadata-Version: 2.4
+Name: note-formatter
+Version: 0.1.0
+Summary: Formats custom markdown symbols and generates a table of contents
+Author: John McNally
+Project-URL: Repository, https://github.com/johnm-portfolio/formatter-deployment
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Dynamic: license-file
+
 # Symbol Formatter
 ## Contents
 - [Symbol Formatter](#symbol-formatter)

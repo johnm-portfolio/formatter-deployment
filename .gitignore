@@ -5,3 +5,4 @@ VSCode.code-workspace
 format_file.lnk
 format_note.lnk
 .vscode
+build/

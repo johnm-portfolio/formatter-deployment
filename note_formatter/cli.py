@@ -30,9 +30,9 @@ def main():
         help="Disable automatic table of contents generation"
     )
     parser.add_argument(
-        "--inline",
+        "--inplace",
         action="store_true",
-        help="Format the file inline (use the same input and output path)"
+        help="Format the file inplace (use the same input and output path)"
     )
     args = parser.parse_args()
 
@@ -47,7 +47,7 @@ def main():
         else:
             inpt_path = Path(inpt_path_str)
         # Get the user to enter the output path
-        if args.inline:
+        if args.inplace:
             out_path = inpt_path
         else:
             out_path_str = input("Enter output file path (press Enter to use the input path): ").strip('"').replace("\\","/")
@@ -60,7 +60,7 @@ def main():
     else:
         inpt_path = Path(args.input.replace("\\","/"))
 
-    if args.inline:
+    if args.inplace:
         out_path = inpt_path
     elif args.input is not None:
         if args.output is None:

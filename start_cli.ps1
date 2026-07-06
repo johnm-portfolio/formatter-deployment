@@ -1,2 +1,2 @@
-cd $PSScriptRoot
-python -m note_formatter.cli --inline
+Set-Location $PSScriptRoot
+note-formatter --inplace
