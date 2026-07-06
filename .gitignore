@@ -36,6 +36,6 @@ Thumbs.db
 dev_notes.txt
 config_lnk.lnk
 
-# Old files
-format_file.lnk
-/note_formatter/prevPath.txt
+# Build files
+note_formatter/data/symbols.json
+website/data/symbols.json
