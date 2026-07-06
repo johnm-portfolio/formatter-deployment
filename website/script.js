@@ -181,8 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   }
 
-  if (!uploadBtn) return;
-
   const fileInput = document.getElementById("fileInput");
   const uploadBtn = document.getElementById("uploadBtn");
   const statusText = document.getElementById("statusText");
