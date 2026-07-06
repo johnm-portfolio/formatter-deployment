@@ -1,6 +1,6 @@
-# Symbol Formatter
+# Note Formatter
 ## Contents
-- [Symbol Formatter](#symbol-formatter)
+- [Note Formatter](#symbol-formatter)
   - [Contents](#contents)
   - [Installation](#installation)
     - [Shortcut Setup](#shortcut-setup)

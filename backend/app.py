@@ -47,7 +47,7 @@ def health():
 @app.route('/format', methods=['POST'])
 def format_file():
     """
-    Format text using the Symbol Formatter
+    Format text using the Note Formatter
     
     Request body:
     {
