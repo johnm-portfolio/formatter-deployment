@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   uploadBtn.addEventListener("click", async () => {
       const file = fileInput.files[0];
+      const text = await file.text();
 
       if (!file) {
           statusText.textContent = "Please select a file first.";
