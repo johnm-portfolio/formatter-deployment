@@ -1,24 +1,25 @@
-name: Tests
+name: Build and Test
 
 on:
   push:
   pull_request:
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          pip install pytest
+        run: pip install pytest
+
+      - name: Run build script
+        run: python build.py
 
       - name: Run tests
         run: |

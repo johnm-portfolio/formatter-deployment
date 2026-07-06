@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: symbol-formatter-api
+    env: python
+    plan: free
+    # will this work?????
+    buildCommand: pip install -r backend/requirements.txt && python build.py
+    startCommand: gunicorn -w 2 -b 0.0.0.0:$PORT backend.app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"

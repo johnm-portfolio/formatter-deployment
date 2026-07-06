@@ -39,3 +39,4 @@ config_lnk.lnk
 # Build files
 note_formatter/data/symbols.json
 website/data/symbols.json
+backend/symbols.json

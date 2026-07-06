@@ -1,4 +1,3 @@
-// Symbol Formatter - Main Script
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const themeButton = document.getElementById("theme-button");
@@ -6,12 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize theme from localStorage
   initializeTheme();
   
-  // Setup event listeners
   if (themeButton) {
     themeButton.addEventListener("click", changeTheme);
   }
   
-  // Only load table data if we're on the symbol table page
   const symbolTable = document.getElementById("symbol-table");
   if (symbolTable) {
     const symbolTableBody = symbolTable.querySelector("tbody");
@@ -120,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  // Theme Management
   function initializeTheme() {
     const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
@@ -152,9 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  // Copy notification
   function showCopyNotification(message) {
-    // Create a simple toast-like notification
     const notification = document.createElement("div");
     notification.style.cssText = `
       position: fixed;
@@ -172,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     notification.textContent = message;
     document.body.appendChild(notification);
     
-    // Remove after 2 seconds
     setTimeout(() => {
       notification.style.animation = "slideOut 0.3s ease-in-out";
       setTimeout(() => {
@@ -181,61 +174,91 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   }
 
+  // File Upload and Formatting
   const fileInput = document.getElementById("fileInput");
   const uploadBtn = document.getElementById("uploadBtn");
   const statusText = document.getElementById("statusText");
 
-  if (!uploadBtn) return;
+  if (uploadBtn && fileInput) {
+    const API_URL = "https://note-formatter.onrender.com";
 
-  uploadBtn.addEventListener("click", async () => {
+    uploadBtn.addEventListener("click", async () => {
       const file = fileInput.files[0];
-      const text = await file.text();
 
       if (!file) {
-          statusText.textContent = "Please select a file first.";
-          return;
+        statusText.textContent = "Please select a file first.";
+        statusText.style.color = "var(--accent-tertiary)";
+        return;
       }
 
-      statusText.textContent = "Uploading...";
+      if (!file.name.endsWith(".md") && !file.name.endsWith(".txt")) {
+        statusText.textContent = "lease upload a .md or .txt file.";
+        statusText.style.color = "var(--accent-tertiary)";
+        return;
+      }
 
-      const formData = new FormData();
-      formData.append("file", file);
+      statusText.textContent = "Formatting your file...";
+      statusText.style.color = "var(--accent-primary)";
 
-      // TODO change
       try {
-          const response = await fetch("/api/format", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify({ text })
-          });
+        const fileText = await file.text();
 
-          if (!response.ok) {
-              throw new Error("Upload failed");
-          }
+        const response = await fetch(`${API_URL}/format`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            text: fileText,
+            generateToc: true
+          })
+        });
 
-          const blob = await response.blob();
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
 
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement("a");
+        const data = await response.json();
 
-          a.href = url;
-          a.download = "formatted.md";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
+        if (!data.success) {
+          throw new Error(data.error || "Unknown error");
+        }
 
-          statusText.textContent = "Download ready!";
+        const blob = new Blob([data.formatted], { type: "text/plain" });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+
+        a.href = url;
+        a.download = file.name.replace(/\.\w+$/, "_formatted.md");
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+
+        statusText.textContent = "✅ Download ready!";
+        statusText.style.color = "var(--accent-primary)";
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          fileInput.value = "";
+          statusText.textContent = "";
+        }, 3000);
+
       } catch (err) {
-          console.error(err);
-          statusText.textContent = "Something went wrong.";
+        console.error("Formatting error:", err);
+        statusText.textContent = `❌ Error: ${err.message}`;
+        statusText.style.color = "var(--accent-tertiary)";
       }
-  });
+    });
+
+    // (Allow Enter key to format)
+    fileInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") uploadBtn.click();
+    });
+  }
 });
 
-
-// Add animation styles
+// animation styles
 const style = document.createElement("style");
 style.textContent = `
   @keyframes slideIn {
