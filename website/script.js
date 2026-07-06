@@ -2,6 +2,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const themeButton = document.getElementById("theme-button");
+
+  const fileInput = document.getElementById("fileInput");
+  const uploadBtn = document.getElementById("uploadBtn");
+  const statusText = document.getElementById("statusText");
   
   // Initialize theme from localStorage
   initializeTheme();
@@ -180,7 +184,57 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     }, 2000);
   }
+
+  if (!uploadBtn) return;
+
+  const fileInput = document.getElementById("fileInput");
+  const uploadBtn = document.getElementById("uploadBtn");
+  const statusText = document.getElementById("statusText");
+
+  if (!uploadBtn) return;
+
+  uploadBtn.addEventListener("click", async () => {
+      const file = fileInput.files[0];
+
+      if (!file) {
+          statusText.textContent = "Please select a file first.";
+          return;
+      }
+
+      statusText.textContent = "Uploading...";
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      try {
+          const response = await fetch("/format", {
+              method: "POST",
+              body: formData
+          });
+
+          if (!response.ok) {
+              throw new Error("Upload failed");
+          }
+
+          const blob = await response.blob();
+
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+
+          a.href = url;
+          a.download = "formatted.md";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+
+          statusText.textContent = "Download ready!";
+      } catch (err) {
+          console.error(err);
+          statusText.textContent = "Something went wrong.";
+      }
+  });
 });
+
 
 // Add animation styles
 const style = document.createElement("style");
