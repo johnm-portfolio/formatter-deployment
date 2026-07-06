@@ -13,7 +13,7 @@
 ## Installation
 Install package directly from github
 ```shell
-pip install pip@git+https://github.com/john-mcn/symbol_formatter
+pip install pip@githttps://github.com/johnm-portfolio/formatter-deployment
 ```
 
 OR
@@ -28,16 +28,13 @@ pip install .
 ```
 
 ### Shortcut Setup
-To make a windows shortcut that runs the package CLI with no args, create a new shortcut with the location set to `powershell.exe -ExecutionPolicy Bypass -File "<absPath>/start_cli.ps1"` where `<absPath>` is replaced with the absolute path to the parent folder.
-- e.g. `powershell.exe -ExecutionPolicy Bypass -File "C:Users/john/Documents/note_formatter/start_clin.ps1"`
+You can create a Windows shortcut with the location set as
+```lnk
+powershell.exe -Command "note-formatter --inplace" 
+ ```
+- Or replace `note-formatter --inplace` with a different package command
 
-You can also create your own shell script and make a shortcut point to it, this way you can define custom sets of arguments
-```ps1
-Set-Location $PSScriptRoot
-note-formatter --inplace
-```
-
-Alternatively, set the location as `powershell.exe -ExecutionPolicy Bypass -File start_cli.ps1` and then edit the "Properties" of it to set the "Start In" to the absolute folder path (either project root or a folder wherein you created your own `.ps1`)
+This means you can quickly and easily run the CLI with a single click.
 
 ## Usage
 With the package installed, simply run
