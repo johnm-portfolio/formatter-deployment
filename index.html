@@ -107,15 +107,17 @@
             <div style="margin-top: 2rem">
                 <h3>Windows Shortcut</h3>
                 <p>For even faster access on Windows, create a shortcut that launches the formatter:</p>
+
+                <p>The <a href="https://github.com/john-mcn/symbol_formatter">GitHub repo</a> has a <code>run_cli.lnk</code> shortcut already</p>
                 
                 <ol style="margin: 1rem 0; padding-left: 1.5rem;">
                     <li style="margin: 0.5rem 0;">Right-click on your desktop → <strong>New</strong> → <strong>Shortcut</strong></li>
                     <li style="margin: 0.5rem 0;">Enter the location:
                         <div class="code-block" style="margin-top: 0.5rem;">
-                            <code>powershell.exe -ExecutionPolicy Bypass -File "&lt;yourPath&gt;/start_cli.ps1"</code>
+                            <code>powershell.exe -Command "note-formatter --inplace"</code>
                         </div>
                     </li>
-                    <li style="margin: 0.5rem 0;">Replace <code>&lt;yourPath&gt;</code> with your project path</li>
+                    <li style="margin: 0.5rem 0;">Or replace the <code>note-formatter --inplace</code> with a different CLI call</li>
                 </ol>
 
                 <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.8;">Now you can quickly format files by clicking the shortcut, and can pin it to your taskbar for efficiency.</p>
